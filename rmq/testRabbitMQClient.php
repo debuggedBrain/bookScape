@@ -19,11 +19,24 @@ function login ($username, $password)
 	$response = $client->send_request($request);
 	//$response = $client->publish($request);
 
+	echo "Client response received (login): ".PHP_EOL; 
 
-	echo "client received response: ".PHP_EOL; 
-	//print_r($response);
-	//echo "\n\n";
+	return $response;
+} //end of login funtion
 
-	//echo $argv[0]." END".PHP_EOL;
+
+function registration ($username, $password)
+{
+	$register = array();
+	$register['type'] = "register";
+	$register['username'] = $username;
+	$register['password'] = $password;
+	//$register['message'] = "some message";
+
+	$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
+	$response = $client->send_request($register);
+
+	echo "Client response received (register): ".PHP_EOL;
+
 	return $response;
 }
