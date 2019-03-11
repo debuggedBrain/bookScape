@@ -26,4 +26,4 @@ function login ($username, $password)
 
 	//echo $argv[0]." END".PHP_EOL;
 	return $response;
-}
+} //end of login funtion
