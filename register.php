@@ -7,7 +7,7 @@ ini_set('display_errors','1');
 
 $username = $_POST["regusername"];
 $password = $_POST["regpassword"];
-$response = register($username, $password);
+$response = registration($username, $password);
 
 if ($response != false)
 {
