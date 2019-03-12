@@ -6,7 +6,11 @@ private $logindb;
 
 public function __construct()
 {
+<<<<<<< HEAD
 	$this->logindb = new mysqli("localhost","ali","password","490_db");
+=======
+	$this->logindb = new mysqli("192.168.1.103","marco","Snakefist0.","490_db");
+>>>>>>> 4003748e94ef530e92efe838e0ca9c1ba66f5653
 
 	if ($this->logindb->connect_errno != 0)
 	{
@@ -48,8 +52,8 @@ public function validateLogin($username,$password)
 
 public function validateRegister($username,$password)
 {
-	$un = $this-logindb->real_escape_string($username);
-	$pw = $this-logindb->real_escape_string($username);
+	$un = $this->logindb->real_escape_string($username);
+	$pw = $this->logindb->real_escape_string($username);
 	$statement = "SELECT * FROM users WHERE username = '$un'";
 	$response = $this->logindb->query($statement);
 
