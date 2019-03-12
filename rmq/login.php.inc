@@ -45,5 +45,27 @@ public function validateLogin($username,$password)
 	}
 	return 0;//no users matched username
 }
+
+public function validateRegister($username,$password)
+{
+	$un = $this-logindb->real_escape_string($username);
+	$pw = $this-logindb->real_escape_string($username);
+	$statement = "SELECT * FROM users WHERE username = '$un'";
+	$response = $this->logindb->query($statement);
+
+	if ($response->num_rows == 0)
+	{
+		$statement = "INSERT INTO users (username,password) VALUES('$un','$pw')";
+		$this->logindb->query($statement) or die ($this->logindb->error);
+		echo "Account has been created.".PHP_EOL;
+		return 1;
+	}
+	else
+	{
+		echo "This username already exists.".PHP_EOL;
+		return 0;
+	}
+
+}
 }
 ?>
