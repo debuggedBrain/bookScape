@@ -48,8 +48,8 @@ public function validateLogin($username,$password)
 
 public function validateRegister($username,$password)
 {
-	$un = $this-logindb->real_escape_string($username);
-	$pw = $this-logindb->real_escape_string($username);
+	$un = $this->logindb->real_escape_string($username);
+	$pw = $this->logindb->real_escape_string($username);
 	$statement = "SELECT * FROM users WHERE username = '$un'";
 	$response = $this->logindb->query($statement);
 
