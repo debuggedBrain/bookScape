@@ -13,7 +13,7 @@ public function __construct()
 		echo "Error connecting to database: ".$this->logindb->connect_error.PHP_EOL;
 		exit(1);
 	}
-	echo "Correctly connected to database".PHP_EOL;
+	echo "Correctly  connected to database".PHP_EOL;
 }
 
 public function validateLogin($username,$password)
