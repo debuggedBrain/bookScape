@@ -23,8 +23,8 @@ public function validateLogin($username,$password)
 	$statement = "select * from users where username = '$un'";
 	$response = $this->logindb->query($statement);
 	$date = date("Y-m-d H:i:s");
-	$loginSuccess = 'loginSuccess.log';
-	$loginFailed = 'loginFailed.log';
+	$loginSuccess = '../logs/loginSuccess.log';
+	$loginFailed = '../logs/loginFailed.log';
 	$successLine ="(".$date.")"." User:{ ".$un. " } has logged in";
 	$failedLine ="(".$date.")"." User:{ ".$un. " } failed reason: ";
 
@@ -63,8 +63,8 @@ public function validateRegister($username,$password)
 	$statement = "SELECT * FROM users WHERE username = '$un'";
 	$response = $this->logindb->query($statement);
 	$date = date("Y-m-d H:i:s");
-        $regSuccess = 'regSuccess.log';
-        $regFailed = 'regFailed.log';
+        $regSuccess = '../logs/regSuccess.log';
+        $regFailed = '../logs/regFailed.log';
         $successLine ="(".$date.")"." User:{ ".$un. " } has been created";
         $failedLine ="(".$date.")"." User:{ ".$un. " } failed reason: ";
 
