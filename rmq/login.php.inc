@@ -33,16 +33,16 @@ public function validateLogin($username,$password)
 			if ($row["password"] == $pw)
 			{
 				echo "Passwords match for $username .".PHP_EOL;
-				echo "\n----DONE SEARCHING----\n\n";
+				echo "----DONE SEARCHING----\n\n";
 				return 1;// password match
 			}
 			echo "Passwords did not match for $username".PHP_EOL;
-			echo "\n----DONE SEARCHING----\n\n";
-		}else{
-			echo "The user $un is not in the database";
-			echo "\n----DONE SEARCHING----\n\n";
+			echo "----DONE SEARCHING----\n\n";
+			return 0;
 		}	
 	}
+	echo "User $un does not exist in the database".PHP_EOL;
+	echo "----DONE SEARCHING----\n\n";
 	return 0;//no users matched username
 }
 
