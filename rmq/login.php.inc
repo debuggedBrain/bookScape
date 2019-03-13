@@ -22,7 +22,6 @@ public function validateLogin($username,$password)
 	$pw = $this->logindb->real_escape_string($password);
 	$statement = "select * from users where username = '$un'";
 	$response = $this->logindb->query($statement);
-
 	while ($row = $response->fetch_assoc())
 	{
 		echo "Checking if user $un is in database...\n";
@@ -58,11 +57,13 @@ public function validateRegister($username,$password)
 		$statement = "INSERT INTO users (username,password) VALUES('$un','$pw')";
 		$this->logindb->query($statement) or die ($this->logindb->error);
 		echo "Account has been created.".PHP_EOL;
+		echo "----DONE REGISTERING----\n\n";
 		return 1;
 	}
 	else
 	{
 		echo "This username already exists.".PHP_EOL;
+		echo "----DONE NO REGISTER----\n\n";
 		return 0;
 	}
 
