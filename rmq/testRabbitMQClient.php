@@ -1,5 +1,6 @@
 #!/usr/bin/php
 <?php
+session_start();
 require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
@@ -15,6 +16,7 @@ function login ($username, $password)
 	$request['type'] = "login";
 	$request['username'] = $username;
 	$request['password'] = $password;
+	$_SESSION['user_id'] = $username;
 	//$request['message'] = "HI";
 	$response = $client->send_request($request);
 	//$response = $client->publish($request);
