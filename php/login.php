@@ -1,6 +1,6 @@
 <?php
 session_start();
-require('rmq/testRabbitMQClient.php');
+require('../rmq/testRabbitMQClient.php');
 
 error_reporting(E_ALL);
 ini_set('display_errors','1');
@@ -17,7 +17,7 @@ if(isset($_SESSION['user_id'])){
 
 	else
 	{
-		header ('location:index.php');
+		header ('location:../index.php');
 	}
 }
 ?>
