@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_POST['logout'])){
-	$logoutFile = "logout.log";
+	$logoutFile = "../logs/logout.log";
 	$date = date("Y-m-d H:i:s");
 	$successLine = "(".$date.") { ".$_SESSION['user_id']." }"."successfully logged out";
 	session_destroy();
