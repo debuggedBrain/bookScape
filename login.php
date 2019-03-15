@@ -9,14 +9,16 @@ $username = $_POST["username"];
 $password = $_POST["password"];
 $response = login($username, $password);
 
-if ($response != false)
-{
-	header('location:success.html');
-}
+if(isset($_SESSION['user_id'])){
+	if ($response != false)
+	{
+		header('location:success.php');
+	}
 
-else
-{
-	header ('location:index.html');
+	else
+	{
+		header ('location:index.php');
+	}
 }
 ?>
 
