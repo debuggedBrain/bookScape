@@ -12,7 +12,7 @@ $response = login($username, $password);
 if(isset($_SESSION['user_id'])){
 	if ($response != false)
 	{
-		header('location:success.php');
+		header('location:index.php');
 	}
 
 	else
