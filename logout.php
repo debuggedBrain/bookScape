@@ -7,7 +7,7 @@ if(isset($_POST['logout'])){
 	session_destroy();
 	echo "You are now logged out";
 	file_put_contents($logout, $successLine.PHP_EOL, FILE_APPEND);
-	echo "<a href='success.php'>\nReturn to homepage</a>";
+	echo "<a href='index.php'>\nReturn to homepage</a>";
 }
 else{
 	echo "logout incorrectly";
