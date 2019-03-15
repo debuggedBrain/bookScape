@@ -1,0 +1,78 @@
+<DOCTYPE! html5>
+<html>
+	<head>
+		<title> bookscape home page</title>
+	</head>
+	<body>
+		<div class = "ban">
+			<img class = "bsb" src = "banner-books.png" alt = "banner image" style = "width:100%;">
+		</div>
+		<div id= "about">
+			<h2> About us</h2>
+			<h6>Our mission is to help students find the text they need at the lowest price possible.
+			We at BookScape know how exspensive college can be before paying fort the courses required text. 
+			With our advance search system we can grantee low prices for all of the books you need</h6> 
+		</div>
+		<div id= "how">
+			<h2> How it works</h2>
+			<h6>You can submitt a search request for either the title of the book or ISBN number. Our system will search accross multiple 
+					databases and websites to grantee to find the lowest prices and save money.</h6> 
+		</div>
+		<h2 id = "w"> What our Users say about us</h2> 
+		<div id = "pics">
+			<img src= "1.jpg" alt = "users 1" id ="poc">
+				
+		</div>
+		
+		<form>
+			<div class="rate" id="radio-container" class = "checked">
+			<input type="radio" id="star5" name="rating" value="5" onclick = "p()" /><label for="star5" title="Awsome"></label>
+			<input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="great"></label>
+			<input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="-_('~')_-"></label>
+			<input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="uh...(._.)...."></label>
+			<input type="radio" id="star1" name="rating" value="1"  /><label for="star1" title="bye"></label>
+			</div>
+	</form>
+	<h6> "Thanks BookScape I saved $$400 this semester:)"</h6>
+	</body>
+	<div class = "footer"> 
+	<h5>
+	copyright 2019 BookScape | Uthman moumani| and others</h5>
+	</div>
+
+<html>
+
+<style>
+body{background-color:skyblue;}
+body{ background-image: "banner-books.png";}
+.bsb{ margin: auto; margin-top: 40 px; height: 160px}
+#about{margin: auto; margin-top:100px; background: white; box-shadow: 3px 5px 3px 3px;}
+#how{margin: auto; margin-top:50px; background: white; box-shadow: 3px 5px 3px 3px;}
+#w{margin: auto; margin-top: 50px;}
+#poc{height: 300px; width: 350px;}
+.rate {
+    float:left;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    clip:rect(0,0,0,0);
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color:yellow;
+}
+
+.rate:not(:checked) > label:before {
+    content: '*';
+}
+
+.checked{ color: yellow;}
+
+</style>
