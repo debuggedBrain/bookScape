@@ -12,12 +12,12 @@ $response = login($username, $password);
 if(isset($_SESSION['user_id'])){
 	if ($response != false)
 	{
-		header('location:success.html');
+		header('location:success.php');
 	}
 
 	else
 	{
-		header ('location:index.html');
+		header ('location:index.php');
 	}
 }
 ?>
