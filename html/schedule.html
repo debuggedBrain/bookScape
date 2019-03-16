@@ -5,12 +5,12 @@
 		<label>How many courses are you taking?</label>
 		<select>
                         <option value="" disabled selected>total</option>
-                        <option value="1" onclick = "off(2) ">1</option>
-                        <option value ="2" onclick  = "on(2) " >2</option>
-						 <option value ="3" onclick  = "on(2); on(3) " >3</option>
-						 <option value ="4" onclick  = "on(2); on(3); on(4) " >4</option>
-						 <option value ="5" onclick  = "on(2); on(3); on(4);on(5)" >5</option>
-						 <option value ="6" onclick  = "on(2); on(3) on(4); on(5); on(6)" >6</option>
+                        <option value="1" onclick = "off(2);off(3);off(4);off(5);off(6);off(7) ">1</option>
+                        <option value ="2" onclick  = "on(2);off(3);off(4);off(5);off(6);off(7)" >2</option>
+						 <option value ="3" onclick  = "on(2); on(3); off(4);off(5);off(6);off(7) " >3</option>
+						 <option value ="4" onclick  = "on(2); on(3); on(4);off(5);off(6);off(7) " >4</option>
+						 <option value ="5" onclick  = "on(2); on(3); on(4);on(5); off(6);off(7)" >5</option>
+						 <option value ="6" onclick  = "on(2); on(3) on(4); on(5); on(6); off(7)" >6</option>
 						 <option value ="7" onclick  = "on(2); on(3); on(4); on(5); on(6); on(7) " >7</option>
                 </select><br><br>
 		<label>Select Course:</label>
