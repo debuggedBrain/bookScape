@@ -1,0 +1,31 @@
+<html>
+<head><h1>Schedule Builder</h1></head><br>
+<body>
+	<form action=/php/schedule.php method="post">
+		<label>How many courses are you taking?</label>
+		<select>
+                        <option value="" disabled selected>total</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+			<option value="4">4</option>
+                        <option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+                </select><br><br>
+		<label>Select Course:</label>
+		<select>
+			<option value="" disabled selected>course</option>
+			<option value="IT202">IT202</option>
+			<option value="IT220">IT220</option>
+			<option value="IT420">IT420</option>
+			<option value="IT430">IT430</option>
+		</select>
+		<label>Course time:</label>
+		<input type="text" name="time"><br><br>
+		<input type="submit" value="submit">
+	</form>
+</body>
+</html>
+
