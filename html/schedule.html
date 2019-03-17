@@ -1,88 +1,43 @@
 <html>
 <head><h1>Schedule Builder</h1></head><br>
 <body>
-	<form action=/php/schedule.php method="post">
-		<label>How many courses are you taking?</label>
-		<select>
-                        <option value="" disabled selected>total</option>
-                        <option value="1" onclick = "off(2);off(3);off(4);off(5);off(6);off(7) ">1</option>
-                        <option value ="2" onclick  = "on(2);off(3);off(4);off(5);off(6);off(7)" >2</option>
-						 <option value ="3" onclick  = "on(2); on(3); off(4);off(5);off(6);off(7) " >3</option>
-						 <option value ="4" onclick  = "on(2); on(3); on(4);off(5);off(6);off(7) " >4</option>
-						 <option value ="5" onclick  = "on(2); on(3); on(4);on(5); off(6);off(7)" >5</option>
-						 <option value ="6" onclick  = "on(2); on(3) on(4); on(5); on(6); off(7)" >6</option>
-						 <option value ="7" onclick  = "on(2); on(3); on(4); on(5); on(6); on(7) " >7</option>
-                </select><br><br>
-		<label>Select Course:</label>
-		<br>
-		<select id = "box1">
-			<option value="" disabled selected>course</option>
-			<option value="IT201">IT201</option>
-			<option value="IT220">IT220</option>
-			<option value="IT420">IT420</option>
-			<option value="IT430">IT430</option>
-		</select>
-		<br>
-		<select id = "2" style = "display: none;">
-			<option value="" disabled selected>course</option>
-			<option value="IT202">IT202</option>
-			<option value="IT220">IT220</option>
-			<option value="IT420">IT420</option>
-			<option value="IT430">IT430</option>
-		</select>
-				<select id = "3" style = "display: none;">
-			<option value="" disabled selected>course</option>
-			<option value="IT203">IT203</option>
-			<option value="IT220">IT220</option>
-			<option value="IT420">IT420</option>
-			<option value="IT430">IT430</option>
-		</select>		
-		<select id = "4" style = "display: none;">
-			<option value="" disabled selected>course</option>
-			<option value="IT204">IT204</option>
-			<option value="IT220">IT220</option>
-			<option value="IT420">IT420</option>
-			<option value="IT430">IT430</option>
-		</select>
-				<select id = "5" style = "display: none;">
-			<option value="" disabled selected>course</option>
-			<option value="IT205">IT205</option>
-			<option value="IT220">IT220</option>
-			<option value="IT420">IT420</option>
-			<option value="IT430">IT430</option>
-		</select>
-				<select id = "6" style = "display: none;">
-			<option value="" disabled selected>course</option>
-			<option value="IT206">IT206</option>
-			<option value="IT220">IT220</option>
-			<option value="IT420">IT420</option>
-			<option value="IT430">IT430</option>
-		</select>
-				<select id = "7" style = "display: none;">
-			<option value="" disabled selected>course</option>
-			<option value="IT207">IT207</option>
-			<option value="IT220">IT220</option>
-			<option value="IT420">IT420</option>
-			<option value="IT430">IT430</option>
-		</select>
-		<br>
+	<form action=../php/schedule.php method="post">
+		<label>Course name:</label>
+		<input type="text" name="course1" style="width: 100px" required>
 		<label>Course time:</label>
-		<input type="text" name="time"><br><br>
+		<input type="text" name="time1" style="width: 100px" required><br>
+                <label>Course name:</label>
+                <input type="text" name="course2" style="width: 100px">
+                <label>Course time:</label>
+                <input type="text" name="time2" style="width: 100px"><br>
+                <label>Course name:</label>
+                <input type="text" name="course3" style="width: 100px">
+                <label>Course time:</label>
+                <input type="text" name="time3" style="width: 100px"><br>
+                <label>Course name:</label>
+                <input type="text" name="course4" style="width: 100px">
+                <label>Course time:</label>
+                <input type="text" name="time4" style="width: 100px"><br>
+                <label>Course name:</label>
+                <input type="text" name="course5" style="width: 100px">
+                <label>Course time:</label>
+                <input type="text" name="time5" style="width: 100px"><br>
+                <label>Course name:</label>
+                <input type="text" name="course6" style="width: 100px">
+                <label>Course time:</label>
+                <input type="text" name="time6" style="width: 100px"><br>
+                <label>Course name:</label>
+                <input type="text" name="course7"style="width: 100px">
+                <label>Course time:</label>
+                <input type="text" name="time7" style="width: 100px"><br>
+                <label>Course name:</label>
+                <input type="text" name="course8" style="width: 100px">
+                <label>Course time:</label>
+                <input type="text" name="time8" style="width: 100px"><br>
+
 		<input type="submit" value="submit">
 	</form>
 </body>
 </html>
-<script type="text/javascript">
-<!--
-    function  off(id) {
-       var off = document.getElementById(id);
-          off.style.display = 'none';
-    }
-	function on(id) {
-       var on= document.getElementById(id);
-          on.style.display = 'block';
-    }
-//-->
-</script>
 
 
