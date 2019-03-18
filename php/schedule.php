@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 ini_set('display_errors','1');
 
 $user = $_POST["user"];
-$courseInfo = array()//array holding course info
+$courseInfo = array();//array holding course info
 $courseInfo['course1'] = $_POST["course1"];
 $courseInfo['time1'] = $_POST["time1"];
 $courseInfo['course2'] = $_POST["course2"];
