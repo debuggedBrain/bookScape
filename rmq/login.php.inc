@@ -101,7 +101,7 @@ public function validateSchedule($courseInfo)
 		if ($course == $c and $time == $t)
 		{
 			echo "Inputs are clean... running query...\n";
-			$insertSchedule = "INSERT INTO schedule ($user,$cString,$tString) VALUES ('$user','$course','$time')";
+			$insertSchedule = "INSERT INTO schedule ($cString,$tString) VALUES ('$course','$time')";
 			$this->logindb->query($insertSchedule) or die ($this->logindb->error);
 			echo "Query has run if no error...\n";
 			echo "$course.' and '.$time.'\n'";
