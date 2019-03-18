@@ -102,7 +102,7 @@ public function validateSchedule($courseInfo)
 		{
 			echo "Inputs are clean... running query...\n"
 			$insertSchedule = "INSERT INTO schedule ('{$cString}','{$tString}') VALUES ('$course','$time')";
-			$this->logindb->query($insertSchedule) or die ($this->logindb->query($insertSchedule) WHERE ;
+			$this->logindb->query($insertSchedule) or die ($this->logindb->error);
 			echo "Query has run if no error...\n";
 			echo "$user.' has entered '.$course.' and '.$time.'\n'";
 			$return = 1;
@@ -111,7 +111,7 @@ public function validateSchedule($courseInfo)
 			$return = 0;
 		}	
 	}
-	echo "'returned: '.$return.' and all is done.'";
+	echo "'returned: '.$return.' and all is done.'\n";
 	return $return;
 }
 
