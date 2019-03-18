@@ -95,7 +95,7 @@ public function validateSchedule($courseInfo)
 		$cString = "course".$n; //courseString
                 $tString = "time".$n; //time string
 		$course = $courseInfo[$tString];
-		$time = $time[$tString];
+		$time = $courseInfo[$tString];
 		$c = $this->logindb->real_escape_string($course); //course
 		$t = $time->logindb->real_escape_string($time); //time
 		if ($course == $c and $time == $t)
