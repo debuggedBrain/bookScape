@@ -6,6 +6,11 @@ session_start();
 <body>
 	<form action="logout.php" method="post">
 	<input name="logout" type="submit" id="logout" value="logout">
-	</form>
+	</form><br>
+	
+	<form action="..html/scheduleCreate.php">
+	<button type="submit">Create Schedule</button>
+	</form><br>
+
 </body>
 </html>
