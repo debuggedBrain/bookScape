@@ -93,7 +93,7 @@ public function validateRegister($username,$password)
 public function validateSchedule($courseInfo)
 {	
 	$user = $courseInfo['user'];
-	for ($n=1; $<=7; $i++){
+	for ($n=1; $n<=7; $i++){
 		$cString = "course".$n; //courseString
                 $tString = "time".$n; //time string
 		$course = $courseInfo[$tString];
