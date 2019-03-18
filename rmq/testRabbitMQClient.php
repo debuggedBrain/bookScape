@@ -1,5 +1,6 @@
 #!/usr/bin/php
 <?php
+//clientFile
 session_start();
 require_once('path.inc');
 require_once('get_host_info.inc');
@@ -42,3 +43,17 @@ function registration ($username, $password)
 
 	return $response;
 }
+
+function buildSchedule ($courseInfo,$user)
+{
+	$courseInfo['type'] = "schedule";
+	$courseInfo['user'] = $user;
+	$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
+	$response = $client->send_request($courseInfo);
+
+	echo "Client response received (buildSchedule): ".PHP_EOL;
+	return $response
+}
+
+?>
+
