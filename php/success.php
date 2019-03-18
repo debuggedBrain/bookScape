@@ -8,7 +8,7 @@ session_start();
 	<input name="logout" type="submit" id="logout" value="logout">
 	</form><br>
 	
-	<form action="..html/scheduleCreate.php">
+	<form action="../html/scheduleCreate.php">
 	<button type="submit">Create Schedule</button>
 	</form><br>
 
