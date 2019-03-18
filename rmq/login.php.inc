@@ -1,5 +1,5 @@
 <?php
-
+//loginDBfile
 class loginDB
 {
 private $logindb;
@@ -72,7 +72,9 @@ public function validateRegister($username,$password)
 	if ($response->num_rows == 0)
 	{
 		$statement = "INSERT INTO users (username,password) VALUES('$un','$pw')";
+		$addUser = "INSERT INTO schedule (user) VALUES('$un')";
 		$this->logindb->query($statement) or die ($this->logindb->error);
+		$this->logindb->query($addUser) or die ($this->logindb->error);
 		echo "Account has been created.".PHP_EOL;
 		echo "----DONE REGISTERING----\n\n";
 		file_put_contents($regSuccess, $successLine.PHP_EOL, FILE_APPEND);
@@ -87,5 +89,37 @@ public function validateRegister($username,$password)
 	}
 
 }
+
+public function validateSchedule($courseInfo)
+{	
+	$user = $courseInfo['user'];
+	for ($n=1; $n<=7; $i++){
+		$cString = "course".$n; //courseString
+                $tString = "time".$n; //time string
+		$course = $courseInfo[$tString];
+		$time = $courseInfo[$tString];
+		$c = $this->logindb->real_escape_string($course); //course
+		$t = $this->logindb->real_escape_string($time); //time
+		if (isset($course,$time))
+		{
+			if ($course == $c and $time == $t)
+			{
+				echo "Inputs are clean... running query...\n";
+				$updateSchedule = "UPDATE schedule SET $cString='$c', $tString='$t' WHERE user='$user'";      
+				$this->logindb->query($insertSchedule) or die ($this->logindb->error);
+				echo "Query has run if no error...\n";
+				$return = 1;
+			}else{
+				echo "Data wasn't good...something is wrong.\n";
+				$return = 0;
+			}
+		}else{
+			echo "No value given.\n";
+		}
+	}
+	echo "'returned: '.$return.' and all is done.'\n";
+	return $return;
+}
+
 }
 ?>
