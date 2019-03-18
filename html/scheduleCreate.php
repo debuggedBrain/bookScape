@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 <head><h1>Schedule Builder</h1></head><br>
 <body>
