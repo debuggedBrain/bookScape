@@ -90,15 +90,29 @@ public function validateRegister($username,$password)
 
 public function validateSchedule($courseInfo)
 {	
+	$user = $courseInfo['user'];
 	for ($n=1; $<=7; $i++){
-		$course = $courseInfo["course+$n"];
-		$time = $time["time"+$n];
-		$cString = "course"+$n;//courseString
-		$tString = "time"+$n;//time string
-		$c = $this->logindb->real_escape_string($course);//course
-		$t = $time->logindb->real_escape_string($time);//time
-		$statement = "INSERT INTO
+		$cString = "course".$n; //courseString
+                $tString = "time".$n; //time string
+		$course = $courseInfo[$tString];
+		$time = $time[$tString];
+		$c = $this->logindb->real_escape_string($course); //course
+		$t = $time->logindb->real_escape_string($time); //time
+		if ($course == $c and $time == $t)
+		{
+			echo "Inputs are clean... running query...\n"
+			$insertSchedule = "INSERT INTO schedule ('{$cString}','{$tString}') VALUES ('$course','$time')";
+			$this->logindb->query($insertSchedule) or die ($this->logindb->query($insertSchedule) WHERE ;
+			echo "Query has run if no error...\n";
+			echo "$user.' has entered '.$course.' and '.$time.'\n'";
+			$return = 1;
+		}else{
+			echo "Data wasn't good...something is wrong.\n";
+			$return = 0;
+		}	
 	}
+	echo "'returned: '.$return.' and all is done.'";
+	return $return;
 }
 
 }
