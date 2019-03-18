@@ -52,7 +52,7 @@ function buildSchedule ($courseInfo,$user)
 	$response = $client->send_request($courseInfo);
 
 	echo "Client response received (buildSchedule): ".PHP_EOL;
-	return $response
+	return $response;
 }
 
 ?>
