@@ -100,18 +100,22 @@ public function validateSchedule($courseInfo)
 		$time = $courseInfo[$tString];
 		$c = $this->logindb->real_escape_string($course); //course
 		$t = $this->logindb->real_escape_string($time); //time
-		if ($course == $c and $time == $t)
+		if (isset($course,$time))
 		{
-			echo "Inputs are clean... running query...\n";
-			$insertSchedule = "INSERT INTO schedule ($cString,$tString) VALUES ('$course','$time')";
-			$this->logindb->query($insertSchedule) or die ($this->logindb->error);
-			echo "Query has run if no error...\n";
-			echo "$course.' and '.$time.'\n'";
-			$return = 1;
+			if ($course == $c and $time == $t)
+			{
+				echo "Inputs are clean... running query...\n";
+				$insertSchedule = "INSERT INTO schedule ($cString,$tString) VALUES ('$course','$time')";
+				$this->logindb->query($insertSchedule) or die ($this->logindb->error);
+				echo "Query has run if no error...\n";
+				$return = 1;
+			}else{
+				echo "Data wasn't good...something is wrong.\n";
+				$return = 0;
+			}
 		}else{
-			echo "Data wasn't good...something is wrong.\n";
-			$return = 0;
-		}	
+			echo "No value given.\n";
+		}
 	}
 	echo "'returned: '.$return.' and all is done.'\n";
 	return $return;
