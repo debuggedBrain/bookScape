@@ -97,14 +97,14 @@ public function validateSchedule($courseInfo)
 		$course = $courseInfo[$tString];
 		$time = $courseInfo[$tString];
 		$c = $this->logindb->real_escape_string($course); //course
-		$t = $time->logindb->real_escape_string($time); //time
+		$t = $this->logindb->real_escape_string($time); //time
 		if ($course == $c and $time == $t)
 		{
 			echo "Inputs are clean... running query...\n";
-			$insertSchedule = "INSERT INTO schedule ('{$cString}','{$tString}') VALUES ('$course','$time')";
+			$insertSchedule = "INSERT INTO schedule ($cString,'{$tString}') VALUES ('$course','$time')";
 			$this->logindb->query($insertSchedule) or die ($this->logindb->error);
 			echo "Query has run if no error...\n";
-			echo "$user.' has entered '.$course.' and '.$time.'\n'";
+			echo "$course.' and '.$time.'\n'";
 			$return = 1;
 		}else{
 			echo "Data wasn't good...something is wrong.\n";
