@@ -1,0 +1,10 @@
+CREATE a table that connects users with books they own.
+ /** CREATE TABLE books_owned (bookName, bookAuthor, bookISBN, username, priceTag);
+ /** FK=username PK=bookISBN
+Can be done when after looking up a book, the user in session can press an add button that will get added to the database_table books_owned.
+--------------------------------------------------------------------------------
+CREATE a SELECT query, when the user wishes to purchase the book, they will be connected to the users who own that book.
+/**SELECT * FROM books_owned ORDER BY "priceTag" ASC;
+This will give the user options ranging from all the users who own this book. Session will be incorporated for the username slot when adding book. 
+--------------------------------------------------------------------------------INSERT into books_owned when you add the book as part of your account. 
+ /** INSERT into books_owned VALUES(variable1, variable2...etc);
