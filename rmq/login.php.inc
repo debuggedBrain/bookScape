@@ -72,7 +72,9 @@ public function validateRegister($username,$password)
 	if ($response->num_rows == 0)
 	{
 		$statement = "INSERT INTO users (username,password) VALUES('$un','$pw')";
+		$addUser = "INSERT INTO schedule (user) VALUES('$un')";
 		$this->logindb->query($statement) or die ($this->logindb->error);
+		$this->logindb->query($addUser) or die ($this->logindb->error);
 		echo "Account has been created.".PHP_EOL;
 		echo "----DONE REGISTERING----\n\n";
 		file_put_contents($regSuccess, $successLine.PHP_EOL, FILE_APPEND);
