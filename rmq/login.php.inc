@@ -1,5 +1,5 @@
 <?php
-
+//loginDBfile
 class loginDB
 {
 private $logindb;
@@ -87,5 +87,19 @@ public function validateRegister($username,$password)
 	}
 
 }
+
+public function validateSchedule($courseInfo)
+{	
+	for ($n=1; $<=7; $i++){
+		$course = $courseInfo["course+$n"];
+		$time = $time["time"+$n];
+		$cString = "course"+$n;//courseString
+		$tString = "time"+$n;//time string
+		$c = $this->logindb->real_escape_string($course);//course
+		$t = $time->logindb->real_escape_string($time);//time
+		$statement = "INSERT INTO
+	}
+}
+
 }
 ?>
