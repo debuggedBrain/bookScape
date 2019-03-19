@@ -94,27 +94,24 @@ public function validateSchedule($courseInfo)
 {	
 	$user = $courseInfo['user'];
 	for ($n=1; $n<=7; $i++){
+		$nStr = strval($n); //changing to string then append
 		$cString = "course".$n; //courseString
                 $tString = "time".$n; //time string
-		$course = $courseInfo[$tString];
+		$course = $courseInfo[$cString];
 		$time = $courseInfo[$tString];
 		$c = $this->logindb->real_escape_string($course); //course
 		$t = $this->logindb->real_escape_string($time); //time
-		if (isset($course,$time))
+
+		if ($course == $c and $time == $t)
 		{
-			if ($course == $c and $time == $t)
-			{
-				echo "Inputs are clean... running query...\n";
-				$updateSchedule = "UPDATE schedule SET $cString='$c', $tString='$t' WHERE user='$user'";      
-				$this->logindb->query($insertSchedule) or die ($this->logindb->error);
-				echo "Query has run if no error...\n";
-				$return = 1;
-			}else{
-				echo "Data wasn't good...something is wrong.\n";
-				$return = 0;
-			}
+			echo "Inputs are clean... running query...\n";
+			$updateSchedule = "UPDATE schedule SET $cString='$c', $tString='$t' WHERE user='$user'";      
+			$this->logindb->query($insertSchedule) or die ($this->logindb->error);
+			echo "Query has run if no error...\n";
+			$return = 1;
 		}else{
-			echo "No value given.\n";
+			echo "Data wasn't good...something is wrong.\n";
+			$return = 0;
 		}
 	}
 	echo "'returned: '.$return.' and all is done.'\n";
