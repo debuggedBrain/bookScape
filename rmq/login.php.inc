@@ -93,7 +93,8 @@ public function validateRegister($username,$password)
 public function validateSchedule($courseInfo)
 {	
 	$user = $courseInfo['user'];
-	for ($n=1; $n<=7; $i++){
+	$n = 1;
+	while ($n <= 7){
 		$nStr = strval($n); //changing to string then append
 		$cString = "course".$n; //courseString
                 $tString = "time".$n; //time string
@@ -109,12 +110,14 @@ public function validateSchedule($courseInfo)
 			$this->logindb->query($insertSchedule) or die ($this->logindb->error);
 			echo "Query has run if no error...\n";
 			$return = 1;
+			++n;
 		}else{
 			echo "Data wasn't good...something is wrong.\n";
 			$return = 0;
+			++n;
 		}
 	}
-	echo "'returned: '.$return.' and all is done.'\n";
+	echo "'RETURNED CODE:{ '.$return.' }QUERIES DONE.'\n\n";
 	return $return;
 }
 
