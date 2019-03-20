@@ -137,7 +137,7 @@ public function validateSell($bookInfo)
 	{
 		echo "Inputs are clean... running query...\n";
 		$insertBook = "UPDATE selling SET book='$t', ISBN='$i', price='$p' WHERE user='$user'";      
-		$this->logindb->query($insertSchedule) or die ($this->logindb->error);
+		$this->logindb->query($insertBook) or die ($this->logindb->error);
 		echo $insertBook."\n";
 		echo "Query has run if no error...\n";
 		$code = 1;
