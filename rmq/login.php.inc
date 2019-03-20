@@ -110,11 +110,11 @@ public function validateSchedule($courseInfo)
 			$this->logindb->query($insertSchedule) or die ($this->logindb->error);
 			echo "Query has run if no error...\n";
 			$return = 1;
-			++n;
+			$n = $n+1;
 		}else{
 			echo "Data wasn't good...something is wrong.\n";
 			$return = 0;
-			++n;
+			$n = $n+1;
 		}
 	}
 	echo "'RETURNED CODE:{ '.$return.' }QUERIES DONE.'\n\n";
