@@ -22,11 +22,11 @@ session_start();
 	<input name="logout" type="submit" id="logout" value="logout">
 	</form>
 	
-	<form action="../html/scheduleCreate.php" method="post">
+	<form action="../html/scheduleCreate.php">
 	<button type="submit">Create Schedule</button>
 	</form>
 	
-	<form action="../html/seller.php" method="post">
+	<form action="../html/seller.php">
 	<button type="submit">Sell Book</button>
 	</form>
 
