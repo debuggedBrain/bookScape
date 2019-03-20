@@ -28,7 +28,7 @@ function doSchedule($courseInfo)
 }
 
 
-function doSchedule($bookInfo)
+function doSeller($bookInfo)
 {
 	$bookSell = new loginDB();
 	return $bookSell->validateSell($bookInfo);
