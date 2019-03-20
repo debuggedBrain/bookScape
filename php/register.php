@@ -16,7 +16,7 @@ if ($response != false)
 
 else
 {
-	header('location:index.php');
+	header('location:../index.php');
 }
 ?>
 
