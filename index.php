@@ -35,11 +35,11 @@ session_start();
 		<form id="login" method="post" action="/php/register.php">
 	<div class="form-group">
 		<label for="username"> Username </label>
-		<input id="username" name="username" class="form-control" type="text" required>
+		<input id="username" name="regusername" class="form-control" type="text" required>
 	</div>
 	<div class="form-group">
 		<label for="password"> Password </label>
-		<input id="password" name="password" class="form-control" type="password" required>
+		<input id="password" name="regpassword" class="form-control" type="password" required>
 		<input type="submit" value="submit" class="btn btn-primary btn-block">
 		</form>
 	</div>
