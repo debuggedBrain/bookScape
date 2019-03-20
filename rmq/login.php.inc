@@ -121,6 +121,36 @@ public function validateSchedule($courseInfo)
 	echo "'RETURNED CODE:{ '$return' }QUERIES DONE.'\n\n";
 	return $return;
 }
+	
+
+public function validateSell($bookInfo)
+{	
+	$user = $bookInfo['user'];
+	$title = $bookInfo['title'];
+	$ISBN = $bookInfo['ISBN'];
+	$price = $bookInfo['price']
+	$t = $this->logindb->real_escape_string($course); //title
+	$i = $this->logindb->real_escape_string($ISBN); //isbn
+	$p = $this->logindb->real_escape_string($price); //price
+
+	if ($title == $t and $ISBN == $i and $price == $p)
+	{
+		echo "Inputs are clean... running query...\n";
+		$insertBook = "UPDATE selling SET book='$t', ISBN='$i', price='$p' WHERE user='$user'";      
+		$this->logindb->query($insertSchedule) or die ($this->logindb->error);
+		echo $insertBook."\n";
+		echo "Query has run if no error...\n";
+		$code = 1;
+		return code;
+
+	}else{
+		echo "Data wasn't good...something is wrong.\n";
+		$code = 0;
+		return code;
+	}
+	echo "'RETURNED CODE:{ '$code' }QUERIES DONE.'\n\n";
+	return $code;
+}
 
 }
 ?>
