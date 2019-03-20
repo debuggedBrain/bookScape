@@ -106,8 +106,9 @@ public function validateSchedule($courseInfo)
 		if ($course == $c and $time == $t)
 		{
 			echo "Inputs are clean... running query...\n";
-			$updateSchedule = "UPDATE schedule SET $cString='$c', $tString='$t' WHERE user='$user'";      
+			$insertSchedule = "UPDATE schedule SET $cString='$c', $tString='$t' WHERE user='$user'";      
 			$this->logindb->query($insertSchedule) or die ($this->logindb->error);
+			echo $insertSchedule."\n";
 			echo "Query has run if no error...\n";
 			$return = 1;
 			$n = $n+1;
@@ -117,7 +118,7 @@ public function validateSchedule($courseInfo)
 			$n = $n+1;
 		}
 	}
-	echo "'RETURNED CODE:{ '.$return.' }QUERIES DONE.'\n\n";
+	echo "'RETURNED CODE:{ '$return' }QUERIES DONE.'\n\n";
 	return $return;
 }
 
