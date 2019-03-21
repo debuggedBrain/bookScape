@@ -21,9 +21,9 @@ session_start();
         <label>Enter username:</label>
         <input type="text" name="user" style="width: 100px" required><br>
         <label>Book title:</label>
-        <input type="text" name="book" style="width: 100px" required>
+        <input type="text" name="title" style="width: 100px" required>
         <label>ISBN #:</label>
-        <input type="text" name="isbn" style="width: 100px" required>
+        <input type="text" name="ISBN" style="width: 100px" required>
         <label>Price:</label>
         <input type="text" name="price" style="width: 100px" required><br>
         <input type="submit" value="submit">
