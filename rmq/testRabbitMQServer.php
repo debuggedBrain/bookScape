@@ -51,6 +51,8 @@ function requestProcessor($request)
 	return doRegister($request['username'],$request['password']);
     case "schedule":
 	return doSchedule($request);
+    case "sell":
+	return doSeller($request);
   }
   return array("returnCode" => '0', 'message'=>"Server received request and processed");
 }
