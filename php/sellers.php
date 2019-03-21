@@ -10,7 +10,7 @@ $bookInfo['title'] = $_POST["title"];
 $bookInfo['ISBN'] = $_POST["ISBN"];
 $bookInfo['price'] = $_POST["price"];
 
-$response = sellBooks($courseInfo,$user);
+$response = sellBooks($bookInfo,$user);
 if ($response != false)
 {
         header('location:success.php');
