@@ -21,9 +21,6 @@ session_start();
                 <input type="text" name="course6" style="width: 100px"><br>
                 <label>Course name:</label>
                 <input type="text" name="course7"style="width: 100px"><br>
-                <label>Course name:</label>
-                <input type="text" name="course8" style="width: 100px"><br>
-
 		<input type="submit" value="submit">
 	</form>
 </body>
