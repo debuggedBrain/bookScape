@@ -136,7 +136,7 @@ public function validateSell($bookInfo)
 	if ($title == $t and $ISBN == $i and $price == $p)
 	{
 		echo "Inputs are clean... running query...\n";
-		$insertBook = "INSERT INTO selling (user, price, ISBN, title) VALUES ('$user', '$p', '$i', '$t');      
+		$insertBook = "INSERT INTO selling (user, price, ISBN, title) VALUES ('$user', '$p', '$i', '$t')";      
 		$this->logindb->query($insertBook) or die ($this->logindb->error);
 		echo $insertBook."\n";
 		echo "Query has run if no error...\n";
@@ -144,7 +144,7 @@ public function validateSell($bookInfo)
 		return code;
 
 	}else{
-		echo "Data wasn't good...something is wrong.\n";
+		echo "Data was not good...something is wrong.\n";
 		$code = 0;
 		return code;
 	}
