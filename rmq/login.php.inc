@@ -97,16 +97,12 @@ public function validateSchedule($courseInfo)
 	while ($n <= 7){
 		$nStr = strval($n); //changing to string then append
 		$cString = "course".$n; //courseString
-                $tString = "time".$n; //time string
 		$course = $courseInfo[$cString];
-		$time = $courseInfo[$tString];
 		$c = $this->logindb->real_escape_string($course); //course
-		$t = $this->logindb->real_escape_string($time); //time
-
-		if ($course == $c and $time == $t)
+		if ($course == $c)
 		{
 			echo "Inputs are clean... running query...\n";
-			$insertSchedule = "UPDATE schedule SET $cString='$c', $tString='$t' WHERE user='$user'";      
+			$insertSchedule = "UPDATE schedule SET $cString='$c' WHERE user='$user'";      
 			$this->logindb->query($insertSchedule) or die ($this->logindb->error);
 			echo $insertSchedule."\n";
 			echo "Query has run if no error...\n";
