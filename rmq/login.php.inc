@@ -140,16 +140,13 @@ public function validateSell($bookInfo)
 		$this->logindb->query($insertBook) or die ($this->logindb->error);
 		echo $insertBook."\n";
 		echo "Query has run if no error...\n";
-		$code = 1;
-		return code;
+		return 1;
 
 	}else{
 		echo "Data was not good...something is wrong.\n";
-		$code = 0;
-		return code;
+		return 0;
 	}
-	echo "'RETURNED CODE:{ '$code' }QUERIES DONE.'\n\n";
-	return $code;
+	echo "---QUERIES DONE---\n\n";
 }
 
 }
