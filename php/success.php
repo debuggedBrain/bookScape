@@ -26,7 +26,7 @@ session_start();
 	<button type="submit">Create Schedule</button>
 	</form>
 	
-	<form action="../html/seller.php">
+	<form action="../html/sellBooks.php">
 	<button type="submit">Sell Book</button>
 	</form>
 
