@@ -57,7 +57,7 @@ function buildSchedule ($courseInfo,$user)
 
 function sellBooks ($bookInfo,$user)
 {
-	$bookInfo['type'] = "schedule";
+	$bookInfo['type'] = "sell";
 	$bookInfo['user'] = $user;
 	$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 	$response = $client->send_request($bookInfo);
