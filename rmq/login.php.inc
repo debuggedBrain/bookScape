@@ -128,7 +128,7 @@ public function validateSell($bookInfo)
 	$user = $bookInfo['user'];
 	$title = $bookInfo['title'];
 	$ISBN = $bookInfo['ISBN'];
-	$price = $bookInfo['price']
+	$price = $bookInfo['price'];
 	$t = $this->logindb->real_escape_string($course); //title
 	$i = $this->logindb->real_escape_string($ISBN); //isbn
 	$p = $this->logindb->real_escape_string($price); //price
@@ -136,7 +136,7 @@ public function validateSell($bookInfo)
 	if ($title == $t and $ISBN == $i and $price == $p)
 	{
 		echo "Inputs are clean... running query...\n";
-		$insertBook = "UPDATE selling SET book='$t', ISBN='$i', price='$p' WHERE user='$user'";      
+		$insertBook = "INSERT INTO selling (user, price, ISBN, title) VALUES ('$user', '$p', '$i', '$t');      
 		$this->logindb->query($insertBook) or die ($this->logindb->error);
 		echo $insertBook."\n";
 		echo "Query has run if no error...\n";
