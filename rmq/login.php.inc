@@ -129,7 +129,7 @@ public function validateSell($bookInfo)
 	$title = $bookInfo['title'];
 	$ISBN = $bookInfo['ISBN'];
 	$price = $bookInfo['price'];
-	$t = $this->logindb->real_escape_string($course); //title
+	$t = $this->logindb->real_escape_string($title); //title
 	$i = $this->logindb->real_escape_string($ISBN); //isbn
 	$p = $this->logindb->real_escape_string($price); //price
 
