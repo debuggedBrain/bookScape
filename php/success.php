@@ -29,19 +29,19 @@ if($conn->connect_error){
 	<input name="logout" type="submit" id="logout" value="logout">
 	</form>
 		
-<!-- Showing schedule being being fetched from DB and schedule button IN PROGRESS 
+<!-- Showing schedule being being fetched from DB and schedule button IN PROGRESS -->
 	<h3>Books currently being sold by you: </h3><br>
 	<?php
-		$scheduleQuery = "SELECT * FROM selling where user='$user'";
-		$result1 = $conn->query($sellQuery);
-		if($result1->num_rows > 0){
-			while($row = $result1->fetch_assoc()){
-				echo "Title:  $row[title]    Price: $$row[price]   ISBN#: $row[ISBN] <br />";
+		$scheduleQuery = "SELECT * FROM schedule RIGHT JOIN courses ON";
+		$result2 = $conn->query($scheduleQuery);
+		if($result2->num_rows > 0){
+			while($row2 = $result1->fetch_assoc()){
+				echo "Course#:  $row2[code]    Course Name: $row2[courseName]    Professor:$row2[professor]   Time:$row[time]     Book:$row[bookTitle]    ISBN#:$row[bookISBN]<br />";
 			}
 		}else{
 				echo "Nothing is being sold by you.";
 		}
-	?>-->
+	?>
 	<form action="../html/scheduleCreate.php">
 	<button type="submit">Create Schedule</button>
 	</form><br>
@@ -49,7 +49,7 @@ if($conn->connect_error){
 <!-- Showing books being sold by user and sell button -->
 	<h3>Books currently being sold by you: </h3><br>
 	<?php
-		$sellQuery = "SELECT * FROM selling where user='$user'";
+		$sellQuery = "SELECT * FROM selling WHERE user='$user'";
 		$result1 = $conn->query($sellQuery);
 		if($result1->num_rows > 0){
 			while($row = $result1->fetch_assoc()){
