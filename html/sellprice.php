@@ -1,6 +1,7 @@
 <html>
 <body>
 <form action="sellprice.php" method="post">
+
 <?php
 session_start();
 require('addbutton.php');
@@ -9,9 +10,11 @@ if($conn->connect_error){
 	die("COnnection failed: ".$conn->_error);
 }
 ?>
+
 <input type='number' name='pricetag' id='pricetag'/> <br>
 <input type='submit' value='submit'/>
 </form>
+
 <?php
 $price = $_POST['pricetag']; 
 if(isset($_POST['submit'])){
@@ -27,6 +30,7 @@ if(isset($_POST['submit'])){
 }
 $conn->close();
 ?>
+
 </body>
 </html>
 
