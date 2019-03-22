@@ -18,8 +18,6 @@ session_start();
     <h1 class="display-4 text-center">
     <i class="fas fa-book-open text-primary"></i> Book <span class="text-primary"> Scape </span> </h1><br></div>
     <form action=../php/sellers.php method="post">
-        <label>Enter username:</label>
-        <input type="text" name="user" style="width: 100px" required><br>
         <label>Book title:</label>
         <input type="text" name="title" style="width: 100px" required>
         <label>ISBN #:</label>
