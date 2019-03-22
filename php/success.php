@@ -39,10 +39,11 @@ if($conn->connect_error){
 		$sellQuery = "SELECT * FROM selling where user='$user'";
 		$result1 = $conn->query($sellQuery);
 		if($result1->num_rows > 0){
-    		while($row = $result1->fetch_assoc()){
-        		echo "'Title: '.$row[title].'    Price: $'.$row[price].'   ISBN#: '.$row[ISBN]\n";
-    		}else{
-			echo "Nothing is being sold by you.";
+			while($row = $result1->fetch_assoc()){
+				echo "'Title: '.$row[title].'    Price: $'.$row[price].'   ISBN#: '.$row[ISBN]\n";
+			}
+		}else{
+				echo "Nothing is being sold by you.";
 		}
 	?>
 	<form action="../html/sellBooks.php">
