@@ -1,5 +1,9 @@
 <?php
 session_start();
+$conn = new mysqli('127.0.0.1','ali', 'password', '490_db');
+if($conn->connect_error){
+        die("Connection failed: ".$conn->_error);
+}
 ?>
 <html>
 <head>
@@ -21,13 +25,24 @@ session_start();
 	<form action="logout.php" method="post">
 	<input name="logout" type="submit" id="logout" value="logout">
 	</form>
-	
+
 	<form action="../html/scheduleCreate.php">
 	<button type="submit">Create Schedule</button>
-	</form>
-	
+	</form><br>
+
+//Showing books being sold by user and sell button	
+	<?php
+		$user = $_SESSION['user_id'];
+		$sellQuery = "SELECT * FROM selling where user='$user'";
+		$result1 = $conn->query($sellQuery);
+		if($result1->num_rows > 0){
+    		while($row = $result1->fetch_assoc()){
+        		echo "$row[title].$row[price].$row[ISBN]\n";
+    		}
+		}
+	?>
 	<form action="../html/sellBooks.php">
-	<button type="submit">Sell Book</button>
+	<button type="submit">Sell A Book</button>
 	</form>
 
 </body>
