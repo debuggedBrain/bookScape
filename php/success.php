@@ -33,7 +33,7 @@ if($conn->connect_error){
 	</form><br>
 
 <!-- Showing books being sold by user and sell button -->
-	<h1>Books currently being sold by you: </h1><br>
+	<h3>Books currently being sold by you: </h3><br>
 	<?php
 		$user = $_SESSION['user_id'];
 		$sellQuery = "SELECT * FROM selling where user='$user'";
