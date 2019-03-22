@@ -30,15 +30,17 @@ if($conn->connect_error){
 	<button type="submit">Create Schedule</button>
 	</form><br>
 
-//Showing books being sold by user and sell button	
+<!-- Showing books being sold by user and sell button -->
+	<h1>Books currently being sold by you: </h1><br>
 	<?php
 		$user = $_SESSION['user_id'];
 		$sellQuery = "SELECT * FROM selling where user='$user'";
 		$result1 = $conn->query($sellQuery);
 		if($result1->num_rows > 0){
     		while($row = $result1->fetch_assoc()){
-        		echo "$row[title].$row[price].$row[ISBN]\n";
-    		}
+        		echo "'Title: '.$row[title].'    Price: $'.$row[price].'   ISBN#: '.$row[ISBN]\n";
+    		}else{
+			echo "Nothing is being sold by you.";
 		}
 	?>
 	<form action="../html/sellBooks.php">
