@@ -72,9 +72,7 @@ public function validateRegister($username,$password)
 	if ($response->num_rows == 0)
 	{
 		$statement = "INSERT INTO users (username,password) VALUES('$un','$pw')";
-		$addUser = "INSERT INTO schedule (user) VALUES('$un')";
 		$this->logindb->query($statement) or die ($this->logindb->error);
-		$this->logindb->query($addUser) or die ($this->logindb->error);
 		echo "Account has been created.".PHP_EOL;
 		echo "----DONE REGISTERING----\n\n";
 		file_put_contents($regSuccess, $successLine.PHP_EOL, FILE_APPEND);
@@ -102,7 +100,7 @@ public function validateSchedule($courseInfo)
 		if ($course == $c)
 		{
 			echo "Inputs are clean... running query...\n";
-			$insertSchedule = "UPDATE schedule SET $cString='$c' WHERE user='$user'";      
+			$insertSchedule = "INSERT INTO schedule (user, course) VALUES ('$user', '$c')";      
 			$this->logindb->query($insertSchedule) or die ($this->logindb->error);
 			echo $insertSchedule."\n";
 			echo "Query has run if no error...\n";
