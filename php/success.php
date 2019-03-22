@@ -1,5 +1,7 @@
 <?php
 session_start();
+error_reporting(E_ALL);
+ini_set('display_errors','1');
 $conn = new mysqli('127.0.0.1','ali', 'password', '490_db');
 if($conn->connect_error){
         die("Connection failed: ".$conn->_error);
