@@ -3,6 +3,7 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors','1');
 $conn = new mysqli('127.0.0.1','ali', 'password', '490_db');
+$user = $_SESSION['user_id'];
 if($conn->connect_error){
         die("Connection failed: ".$conn->_error);
 }
@@ -27,7 +28,20 @@ if($conn->connect_error){
 	<form action="logout.php" method="post">
 	<input name="logout" type="submit" id="logout" value="logout">
 	</form>
-
+		
+<!-- Showing schedule being being fetched from DB and schedule button IN PROGRESS 
+	<h3>Books currently being sold by you: </h3><br>
+	<?php
+		$scheduleQuery = "SELECT * FROM selling where user='$user'";
+		$result1 = $conn->query($sellQuery);
+		if($result1->num_rows > 0){
+			while($row = $result1->fetch_assoc()){
+				echo "Title:  $row[title]    Price: $$row[price]   ISBN#: $row[ISBN] <br />";
+			}
+		}else{
+				echo "Nothing is being sold by you.";
+		}
+	?>-->
 	<form action="../html/scheduleCreate.php">
 	<button type="submit">Create Schedule</button>
 	</form><br>
@@ -35,7 +49,6 @@ if($conn->connect_error){
 <!-- Showing books being sold by user and sell button -->
 	<h3>Books currently being sold by you: </h3><br>
 	<?php
-		$user = $_SESSION['user_id'];
 		$sellQuery = "SELECT * FROM selling where user='$user'";
 		$result1 = $conn->query($sellQuery);
 		if($result1->num_rows > 0){
