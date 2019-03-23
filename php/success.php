@@ -29,10 +29,10 @@ if($conn->connect_error){
 	<input name="logout" type="submit" id="logout" value="logout">
 	</form>
 		
-<!-- Showing schedule being being fetched from DB and schedule button IN PROGRESS -->
+<!-- Showing schedule being being fetched from DB and schedule button-->
 	<h3>Books currently being sold by you: </h3><br>
 	<?php
-		$scheduleQuery = "SELECT * FROM schedule RIGHT JOIN courses ON";
+		$scheduleQuery = "SELECT * FROM schedule RIGHT JOIN courses ON schedule.course=courses.code WHERE schedule.user='$user'";
 		$result2 = $conn->query($scheduleQuery);
 		if($result2->num_rows > 0){
 			while($row2 = $result1->fetch_assoc()){
