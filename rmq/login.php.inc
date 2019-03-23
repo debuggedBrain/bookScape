@@ -97,8 +97,11 @@ public function validateSchedule($courseInfo)
 		$cString = "course".$n; //courseString
 		$course = $courseInfo[$cString];
 		$c = $this->logindb->real_escape_string($course); //course
-		if ($course == $c)
-		{
+		if ($c == ''){
+			$n = $n+1;
+			continue;
+		}
+		if ($course == $c){
 			echo "Inputs are clean... running query...\n";
 			$insertSchedule = "INSERT INTO schedule (user, course) VALUES ('$user', '$c')";      
 			$this->logindb->query($insertSchedule) or die ($this->logindb->error);
