@@ -9,12 +9,10 @@ function bookse(){
 		success: function(data){
 			console.log(data)
 			for (i=0; i < data.items.length; i++){
-				result.innerHTML += "<h3>ISBN#: "  + data.items[i].volumeInfo.industryIdentifiers[1].identifier+"<br></h3>"
+				result.innerHTML += "<h3>ISBN#: "  + data.items[i].volumeInfo.industryIdentifiers[0].identifier+"<br></h3>"
 				result.innerHTML += "<h3>Title: " + data.items[i].volumeInfo.title + "<h3>" + "<br>"
 				result.innerHTML += "<h3>Author: " + data.items[i].volumeInfo.authors+ "</h3><br>"
-				//result.innerHTML += "<h3>"  + data.items[i].volumeInfo.description+ "<br>"
-				result.innerHTML += "<a href ='addbutton.php'>" +'<button id="own" name="own" class ="red btn">G Books</button></a>'
-				//result.innerHTML += "<a href ='check.php'>" + '<button id="check" name="check" class ="red btn">Check Offers</button></a>'
+				result.innerHTML += "<a href ="+data.items[i].volumeInfo.InfoLink +'><button id="own" name="own" class ="red btn">G Books</button></a>"
 
 			}
 		},
