@@ -36,7 +36,7 @@ if($conn->connect_error){
 		$result2 = $conn->query($scheduleQuery);
 		if($result2->num_rows > 0){
 			while($row2 = $result2->fetch_assoc()){
-				echo "Course#:  $row2[code]    Course Name: $row2[courseName]    Professor:$row2[professor]   Time:$row[time]     Book:$row[bookTitle]    ISBN#:$row[bookISBN]<br />";
+				echo "$row2[code], $row2[courseName], $row2[professor], $row2[time], $row2[bookTitle], $row2[bookISBN]<br />";
 			}
 		}else{
 				echo "No schedule has been created";
