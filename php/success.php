@@ -91,13 +91,5 @@
       <form action="../html/sellBooks.php">
          <button type="submit">Sell A Book</button>
       </form>
-      <br>
-      <h3>Search for a book:</h3>
-      <input type = "search" id = "books">
-      <label for "search"><label>
-      <button type = "button" id = "b">g books</button>
-      <div id="result"></div>
-      <script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <script src = "../html/my.js"></script>
    </body>
 </html>
