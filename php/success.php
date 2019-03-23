@@ -76,6 +76,7 @@
       <!-- Showing books being sold by user and sell button -->
       <h3>Books currently being sold by you: </h3>
       <br>
+      <table>
       <?php
          $sellQuery = "SELECT * FROM selling WHERE user='$user'";
          $result1 = $conn->query($sellQuery);
@@ -88,6 +89,7 @@
          		echo "Nothing is being sold by you";
          }
          ?>
+      </table>
       <form action="../html/sellBooks.php">
          <button type="submit">Sell A Book</button>
       </form>
