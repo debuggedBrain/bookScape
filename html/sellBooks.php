@@ -23,7 +23,7 @@ session_start();
         <label>ISBN #:</label>
         <input type="text" name="ISBN" style="width: 100px" required>
         <label>Price:</label>
-        <input type="text" name="price" style="width: 100px" required><br>
+        <input type="number" step="0.01" name="price" style="width: 100px" required><br>
         <input type="submit" value="submit">
     </form>
 <h3>Search for a book:</h3>
