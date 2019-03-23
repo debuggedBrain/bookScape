@@ -35,7 +35,7 @@ if($conn->connect_error){
 		$scheduleQuery = "SELECT * FROM schedule RIGHT JOIN courses ON schedule.course=courses.code WHERE schedule.user='$user'";
 		$result2 = $conn->query($scheduleQuery);
 		if($result2->num_rows > 0){
-			while($row2 = $result1->fetch_assoc()){
+			while($row2 = $result2->fetch_assoc()){
 				echo "Course#:  $row2[code]    Course Name: $row2[courseName]    Professor:$row2[professor]   Time:$row[time]     Book:$row[bookTitle]    ISBN#:$row[bookISBN]<br />";
 			}
 		}else{
