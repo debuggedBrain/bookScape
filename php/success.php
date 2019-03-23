@@ -27,8 +27,7 @@ if($conn->connect_error){
 	<h1>Welcome <?php echo " $user !"; ?></h1>
 	<form action="logout.php" method="post">
 	<input name="logout" type="submit" id="logout" value="logout">
-	</form>
-		
+	</form>		
 <!-- Showing schedule being being fetched from DB and schedule button-->
 	<h3>Your generated schedule: </h3><br>
 	<?php
@@ -45,7 +44,24 @@ if($conn->connect_error){
 	<form action="../html/scheduleCreate.php">
 	<button type="submit">Create Schedule</button>
 	</form><br>
-
+		
+<!-- Sellers who have the book for courses -->
+	<h3>Sellers available for your book: </h3><br>
+	<?php
+		$findSellerQuery = "SELECT * FROM selling RIGHT JOIN courses ON schedule.course=courses.code WHERE schedule.user='$user'";
+		$result2 = $conn->query($scheduleQuery);
+		if($result2->num_rows > 0){
+			while($row2 = $result2->fetch_assoc()){
+				echo "$row2[code], $row2[courseName], $row2[professor], $row2[time], $row2[bookTitle], $row2[bookISBN]<br />";
+			}
+		}else{
+				echo "No schedule has been created";
+		}
+	?>
+	<form action="../html/scheduleCreate.php">
+	<button type="submit">Create Schedule</button>
+	</form><br>
+		
 <!-- Showing books being sold by user and sell button -->
 	<h3>Books currently being sold by you: </h3><br>
 	<?php
