@@ -24,7 +24,7 @@ if($conn->connect_error){
 	<div class="container mt-4">
 	<h1 class="display-4 text-center">
 	<i class="fas fa-book-open text-primary"></i> Book <span class="text-primary"> Scape </span> </h1><br>
-
+	<h1>Welcome <?php echo " $user !"; ?></h1>
 	<form action="logout.php" method="post">
 	<input name="logout" type="submit" id="logout" value="logout">
 	</form>
