@@ -22,6 +22,7 @@ if($conn->connect_error){
 	<style>
 		table,th,td{
 			border: 1px solid black;
+			padding: 15px;
 		}
 	</style>
 </head>
@@ -40,6 +41,7 @@ if($conn->connect_error){
 		$scheduleQuery = "SELECT * FROM schedule RIGHT JOIN courses ON schedule.course=courses.code WHERE schedule.user='$user'";
 		$result2 = $conn->query($scheduleQuery);
 		if($result2->num_rows > 0){
+			echo "<tr><th>Course#</th><th>Course</th><th>Professor</th><th>Time</th><th>Book</th><th>ISBN</th>";
 			while($row2 = $result2->fetch_assoc()){
 				echo "<tr><td>$row2[code]</td><td>$row2[courseName]</td><td>$row2[professor]</td><td>$row2[time]</td><td>$row2[bookTitle]</td><td>$row2[bookISBN]</td></tr><br />";
 			}
