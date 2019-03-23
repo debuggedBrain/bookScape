@@ -19,6 +19,11 @@ if($conn->connect_error){
 	
 	<link rel="stylesheet" href="login.css" type="text/css">
 	<title>BookScape</title>
+	<style>
+		table,th,td{
+			border: 1px solid black;
+		}
+	</style>
 </head>
 <body>
 	<div class="container mt-4">
@@ -29,18 +34,20 @@ if($conn->connect_error){
 	<input name="logout" type="submit" id="logout" value="logout">
 	</form>		
 <!-- Showing schedule being being fetched from DB and schedule button-->
-	<h3>Your generated schedule: </h3><br>
+	<h3>Your generated schedule: </h3>
+	<table>
 	<?php
 		$scheduleQuery = "SELECT * FROM schedule RIGHT JOIN courses ON schedule.course=courses.code WHERE schedule.user='$user'";
 		$result2 = $conn->query($scheduleQuery);
 		if($result2->num_rows > 0){
 			while($row2 = $result2->fetch_assoc()){
-				echo "$row2[code], $row2[courseName], $row2[professor], $row2[time], $row2[bookTitle], $row2[bookISBN]<br />";
+				echo "<tr><td>$row2[code]</td><td>$row2[courseName]</td><td>$row2[professor]</td><td>$row2[time]</td><td>$row2[bookTitle]</td><td>$row2[bookISBN]</td></tr><br />";
 			}
 		}else{
 				echo "No schedule has been created";
 		}
 	?>
+	</table>
 	<form action="../html/scheduleCreate.php">
 	<button type="submit">Create Schedule</button>
 	</form><br>
@@ -58,10 +65,11 @@ if($conn->connect_error){
 				echo "No schedule has been created";
 		}*/
 	?>
- -->
+
 	<form action="../html/scheduleCreate.php">
 	<button type="submit">Create Schedule</button>
 	</form><br>
+ -->
 		
 <!-- Showing books being sold by user and sell button -->
 	<h3>Books currently being sold by you: </h3><br>
