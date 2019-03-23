@@ -45,9 +45,9 @@ if($conn->connect_error){
 	<button type="submit">Create Schedule</button>
 	</form><br>
 		
-<!-- Sellers who have the book for courses -->
+<!-- Sellers who have the book for courses IN PROGRESS
 	<h3>Sellers available for your book: </h3><br>
-	<?php
+	<?php/*
 		$findSellerQuery = "SELECT * FROM selling RIGHT JOIN courses ON schedule.course=courses.code WHERE schedule.user='$user'";
 		$result2 = $conn->query($scheduleQuery);
 		if($result2->num_rows > 0){
@@ -56,8 +56,9 @@ if($conn->connect_error){
 			}
 		}else{
 				echo "No schedule has been created";
-		}
+		}*/
 	?>
+ -->
 	<form action="../html/scheduleCreate.php">
 	<button type="submit">Create Schedule</button>
 	</form><br>
