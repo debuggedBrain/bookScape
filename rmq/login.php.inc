@@ -72,9 +72,7 @@ public function validateRegister($username,$password)
 	if ($response->num_rows == 0)
 	{
 		$statement = "INSERT INTO users (username,password) VALUES('$un','$pw')";
-		$addUser = "INSERT INTO schedule (user) VALUES('$un')";
 		$this->logindb->query($statement) or die ($this->logindb->error);
-		$this->logindb->query($addUser) or die ($this->logindb->error);
 		echo "Account has been created.".PHP_EOL;
 		echo "----DONE REGISTERING----\n\n";
 		file_put_contents($regSuccess, $successLine.PHP_EOL, FILE_APPEND);
@@ -97,16 +95,15 @@ public function validateSchedule($courseInfo)
 	while ($n <= 7){
 		$nStr = strval($n); //changing to string then append
 		$cString = "course".$n; //courseString
-                $tString = "time".$n; //time string
 		$course = $courseInfo[$cString];
-		$time = $courseInfo[$tString];
 		$c = $this->logindb->real_escape_string($course); //course
-		$t = $this->logindb->real_escape_string($time); //time
-
-		if ($course == $c and $time == $t)
-		{
+		if ($c == ''){
+			$n = $n+1;
+			continue;
+		}
+		if ($course == $c){
 			echo "Inputs are clean... running query...\n";
-			$insertSchedule = "UPDATE schedule SET $cString='$c', $tString='$t' WHERE user='$user'";      
+			$insertSchedule = "INSERT INTO schedule (user, course) VALUES ('$user', '$c')";      
 			$this->logindb->query($insertSchedule) or die ($this->logindb->error);
 			echo $insertSchedule."\n";
 			echo "Query has run if no error...\n";
@@ -120,6 +117,33 @@ public function validateSchedule($courseInfo)
 	}
 	echo "'RETURNED CODE:{ '$return' }QUERIES DONE.'\n\n";
 	return $return;
+}
+	
+
+public function validateSell($bookInfo)
+{	
+	$user = $bookInfo['user'];
+	$title = $bookInfo['title'];
+	$ISBN = $bookInfo['ISBN'];
+	$price = $bookInfo['price'];
+	$t = $this->logindb->real_escape_string($title); //title
+	$i = $this->logindb->real_escape_string($ISBN); //isbn
+	$p = $this->logindb->real_escape_string($price); //price
+
+	if ($title == $t and $ISBN == $i and $price == $p)
+	{
+		echo "Inputs are clean... running query...\n";
+		$insertBook = "INSERT INTO selling (user, price, ISBN, title) VALUES ('$user', '$p', '$i', '$t')";      
+		$this->logindb->query($insertBook) or die ($this->logindb->error);
+		echo $insertBook."\n";
+		echo "Query has run if no error...\n";
+		return 1;
+
+	}else{
+		echo "Data was not good...something is wrong.\n";
+		return 0;
+	}
+	echo "---QUERIES DONE---\n\n";
 }
 
 }

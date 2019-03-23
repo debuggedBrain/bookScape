@@ -27,6 +27,14 @@ function doSchedule($courseInfo)
 	return $schedule->validateSchedule($courseInfo);
 }
 
+
+function doSeller($bookInfo)
+{
+	$bookSell = new loginDB();
+	return $bookSell->validateSell($bookInfo);
+}
+
+
 function requestProcessor($request)
 {
   echo "NEW: received request".PHP_EOL;
@@ -43,6 +51,8 @@ function requestProcessor($request)
 	return doRegister($request['username'],$request['password']);
     case "schedule":
 	return doSchedule($request);
+    case "sell":
+	return doSeller($request);
   }
   return array("returnCode" => '0', 'message'=>"Server received request and processed");
 }

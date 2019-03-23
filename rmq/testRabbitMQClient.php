@@ -55,5 +55,16 @@ function buildSchedule ($courseInfo,$user)
 	return $response;
 }
 
+function sellBooks ($bookInfo,$user)
+{
+	$bookInfo['type'] = "sell";
+	$bookInfo['user'] = $user;
+	$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
+	$response = $client->send_request($bookInfo);
+
+	echo "Client response received (sellBooks): ".PHP_EOL;
+	return $response;
+}
+
 ?>
 

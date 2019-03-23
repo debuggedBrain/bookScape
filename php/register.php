@@ -9,14 +9,16 @@ $username = $_POST["regusername"];
 $password = $_POST["regpassword"];
 $response = registration($username, $password);
 
-if ($response != false)
-{
-        header('location:success.php');
-}
+if(isset($_SESSION['user_id'])){
+	if ($response != false)
+	{
+		header('location:success.php');
+	}
 
-else
-{
-	header('location:../index.php');
+	else
+	{
+		header('location:../index.php');
+	}
 }
 ?>
 
