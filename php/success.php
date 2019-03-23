@@ -21,7 +21,7 @@
       <style>
          table,th,td{
          border: 1px solid black;
-         padding: 15px;
+         padding: 5px;
          }
       </style>
    </head>
