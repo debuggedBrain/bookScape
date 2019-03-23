@@ -69,8 +69,11 @@ public function validateRegister($username,$password)
         $failedLine ="(".$date.")"." User:{ ".$un. " } failed reason: ";
 
 	echo "Searching database to see if user already exists.\n";
-	if ($response->num_rows == 0)
-	{
+	if ($un == '' or $pw ==''){
+		echo "NULL values will not be accepted here, bye.\n";
+		return 0;
+	}
+	if ($response->num_rows == 0){
 		$statement = "INSERT INTO users (username,password) VALUES('$un','$pw')";
 		$addUser = "INSERT INTO schedule (user) VALUES('$un')";
 		$this->logindb->query($statement) or die ($this->logindb->error);
