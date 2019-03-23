@@ -39,7 +39,7 @@ if($conn->connect_error){
 				echo "Course#:  $row2[code]    Course Name: $row2[courseName]    Professor:$row2[professor]   Time:$row[time]     Book:$row[bookTitle]    ISBN#:$row[bookISBN]<br />";
 			}
 		}else{
-				echo "Nothing is being sold by you.";
+				echo "No schedule has been created";
 		}
 	?>
 	<form action="../html/scheduleCreate.php">
@@ -56,7 +56,7 @@ if($conn->connect_error){
 				echo "Title:  $row[title]    Price: $$row[price]   ISBN#: $row[ISBN] <br />";
 			}
 		}else{
-				echo "Nothing is being sold by you.";
+				echo "Nothing is being sold by you";
 		}
 	?>
 	<form action="../html/sellBooks.php">
