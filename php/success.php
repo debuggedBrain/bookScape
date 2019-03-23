@@ -30,7 +30,7 @@ if($conn->connect_error){
 	</form>
 		
 <!-- Showing schedule being being fetched from DB and schedule button-->
-	<h3>Books currently being sold by you: </h3><br>
+	<h3>Your generated schedule: </h3><br>
 	<?php
 		$scheduleQuery = "SELECT * FROM schedule RIGHT JOIN courses ON schedule.course=courses.code WHERE schedule.user='$user'";
 		$result2 = $conn->query($scheduleQuery);
