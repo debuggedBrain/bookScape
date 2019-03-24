@@ -35,6 +35,7 @@
       <form action="logout.php" method="post">
          <input name="logout" type="submit" id="logout" value="logout">
       </form>
+	<center>
       <!-- Showing schedule being being fetched from DB and schedule button-->
       <h3>Your generated schedule: </h3>
       <table>
@@ -92,5 +93,6 @@
       <form action="../html/sellBooks.php">
          <button type="submit">Sell A Book</button>
       </form>
+     </center>
    </body>
 </html>
