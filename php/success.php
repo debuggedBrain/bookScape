@@ -56,24 +56,25 @@
          <button type="submit">Create Schedule</button>
       </form>
       <br>
-      <!-- Sellers who have the book for courses IN PROGRESS
+      <!-- Sellers who have the book for courses IN PROGRESS -->
          <h3>Sellers available for your book: </h3><br>
-         <?php/*
-            $findSellerQuery = "SELECT * FROM selling RIGHT JOIN courses ON schedule.course=courses.code WHERE schedule.user='$user'";
-            $result2 = $conn->query($scheduleQuery);
-            if($result2->num_rows > 0){
-            	while($row2 = $result2->fetch_assoc()){
-            		echo "$row2[code], $row2[courseName], $row2[professor], $row2[time], $row2[bookTitle], $row2[bookISBN]<br />";
+	<table>
+         <?php
+            $findSellerQuery = "SELECT * FROM selling RIGHT JOIN courses ON courses.bookISBN=selling.ISBN";
+            $result3 = $conn->query($findSellerQuery);
+            if($result3->num_rows > 0){
+		echo "<tr><th>Seller</th><th>Price</th><th>ISBN</th><th>Title</th></tr>";
+            	while($row3 = $result3->fetch_assoc()){
+            		echo "<tr><td>$row3[user]</td><td>$row3[price]</td><td>$row3[ISBN]</td><td>$row3[title]</td></tr><br />";
             	}
             }else{
-            		echo "No schedule has been created";
-            }*/
+            		echo "No books reccomended or being sold";
+            }
             ?>
-         
+	</table>
          <form action="../html/scheduleCreate.php">
          <button type="submit">Create Schedule</button>
          </form><br>
-         -->
       <!-- Showing books being sold by user and sell button -->
 <h3>Books currently being sold by you: </h3>
       <table>
