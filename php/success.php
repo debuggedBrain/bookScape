@@ -72,9 +72,6 @@
             }
             ?>
 	</table>
-         <form action="../html/scheduleCreate.php">
-         <button type="submit">Create Schedule</button>
-         </form><br>
       <!-- Showing books being sold by user and sell button -->
 <h3>Books currently being sold by you: </h3>
       <table>
