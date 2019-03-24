@@ -74,8 +74,7 @@
          </form><br>
          -->
       <!-- Showing books being sold by user and sell button -->
-      <h3>Books currently being sold by you: </h3>
-      <br>
+<h3>Books currently being sold by you: </h3>
       <table>
       <?php
          $sellQuery = "SELECT * FROM selling WHERE user='$user'";
