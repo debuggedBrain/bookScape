@@ -60,16 +60,17 @@
          <h3>Sellers available for your book: </h3><br>
 	<table>
          <?php
-            $findSellerQuery = "SELECT * FROM selling RIGHT JOIN courses ON courses.bookISBN=selling.ISBN";
+            $findSellerQuery = "select selling.user AS seller, selling.price AS price, selling.title AS title, selling.ISBN AS ISBN from selling right join courses on courses.bookISBN=selling.ISBN right join schedule on schedule.course=courses.code where schedule.user='$user'";
             $result3 = $conn->query($findSellerQuery);
             if($result3->num_rows > 0){
-		echo "<tr><th>Seller</th><th>Price</th><th>ISBN</th><th>Title</th></tr>";
-            	while($row3 = $result3->fetch_assoc()){
-            		echo "<tr><td>$row3[user]</td><td>$row3[price]</td><td>$row3[ISBN]</td><td>$row3[title]</td></tr><br />";
-            	}
+                echo "<tr><th>Seller</th><th>Price</th><th>ISBN</th><th>Title</th></tr>";
+                while($row3 = $result3->fetch_assoc()){
+                        echo "<tr><td>$row3[seller]</td><td>$row3[price]</td><td>$row3[ISBN]</td><td>$row3[title]</td></tr><br />";
+                }
             }else{
-            		echo "No books reccomended or being sold";
+                        echo "No books reccomended or being sold";
             }
+
             ?>
 	</table>
       <!-- Showing books being sold by user and sell button -->
