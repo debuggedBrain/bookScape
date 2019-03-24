@@ -57,7 +57,7 @@
       </form>
       <br>
       <!-- Sellers who have the book for courses IN PROGRESS -->
-         <h3>Sellers available for your book: </h3><br>
+         <h3>Sellers available for your book: </h3>
 	<table>
          <?php
             $findSellerQuery = "select selling.user AS seller, selling.price AS price, selling.title AS title, selling.ISBN AS ISBN from selling right join courses on courses.bookISBN=selling.ISBN right join schedule on schedule.course=courses.code where schedule.user='$user'";
@@ -92,6 +92,13 @@
       <form action="../html/sellBooks.php">
          <button type="submit">Sell A Book</button>
       </form>
+      <h3>Manually search for a book:</h3>
+      <input type = "search" id = "books">
+      <label for "search"><label>
+      <button type = "button" id = "b">g books</button>
+      <div id="result"></div>
+      <script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src = "my.js"></script>
      </center>
    </body>
 </html>
