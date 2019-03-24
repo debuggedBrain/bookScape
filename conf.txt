@@ -1,0 +1,14 @@
+<VirtualHost *:80>
+        ServerName www.bookScape.com
+        ServerAlias bookScape.com
+
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/bookScape
+
+        ErrorLog ${APACHE_LOG_DIR}/bookScape_error.log
+        CustomLog ${APACHE_LOG_DIR}/bookScape_access.log combined
+
+</VirtualHost>
+
+# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+~   
