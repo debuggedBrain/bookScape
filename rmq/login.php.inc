@@ -1,5 +1,5 @@
 <?php
-
+//loginDBfile
 class loginDB
 {
 private $logindb;
@@ -87,5 +87,64 @@ public function validateRegister($username,$password)
 	}
 
 }
+
+public function validateSchedule($courseInfo)
+{	
+	$user = $courseInfo['user'];
+	$n = 1;
+	while ($n <= 7){
+		$nStr = strval($n); //changing to string then append
+		$cString = "course".$n; //courseString
+		$course = $courseInfo[$cString];
+		$c = $this->logindb->real_escape_string($course); //course
+		if ($c == ''){
+			$n = $n+1;
+			continue;
+		}
+		if ($course == $c){
+			echo "Inputs are clean... running query...\n";
+			$insertSchedule = "INSERT INTO schedule (user, course) VALUES ('$user', '$c')";      
+			$this->logindb->query($insertSchedule) or die ($this->logindb->error);
+			echo $insertSchedule."\n";
+			echo "Query has run if no error...\n";
+			$return = 1;
+			$n = $n+1;
+		}else{
+			echo "Data wasn't good...something is wrong.\n";
+			$return = 0;
+			$n = $n+1;
+		}
+	}
+	echo "'RETURNED CODE:{ '$return' }QUERIES DONE.'\n\n";
+	return $return;
+}
+	
+
+public function validateSell($bookInfo)
+{	
+	$user = $bookInfo['user'];
+	$title = $bookInfo['title'];
+	$ISBN = $bookInfo['ISBN'];
+	$price = $bookInfo['price'];
+	$t = $this->logindb->real_escape_string($title); //title
+	$i = $this->logindb->real_escape_string($ISBN); //isbn
+	$p = $this->logindb->real_escape_string($price); //price
+
+	if ($title == $t and $ISBN == $i and $price == $p)
+	{
+		echo "Inputs are clean... running query...\n";
+		$insertBook = "INSERT INTO selling (user, price, ISBN, title) VALUES ('$user', '$p', '$i', '$t')";      
+		$this->logindb->query($insertBook) or die ($this->logindb->error);
+		echo $insertBook."\n";
+		echo "Query has run if no error...\n";
+		return 1;
+
+	}else{
+		echo "Data was not good...something is wrong.\n";
+		return 0;
+	}
+	echo "---QUERIES DONE---\n\n";
+}
+
 }
 ?>

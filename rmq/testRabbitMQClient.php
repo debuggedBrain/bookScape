@@ -1,5 +1,7 @@
 #!/usr/bin/php
 <?php
+//clientFile
+session_start();
 require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
@@ -15,6 +17,7 @@ function login ($username, $password)
 	$request['type'] = "login";
 	$request['username'] = $username;
 	$request['password'] = $password;
+	$_SESSION['user_id'] = $username;
 	//$request['message'] = "HI";
 	$response = $client->send_request($request);
 	//$response = $client->publish($request);
@@ -40,3 +43,28 @@ function registration ($username, $password)
 
 	return $response;
 }
+
+function buildSchedule ($courseInfo,$user)
+{
+	$courseInfo['type'] = "schedule";
+	$courseInfo['user'] = $user;
+	$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
+	$response = $client->send_request($courseInfo);
+
+	echo "Client response received (buildSchedule): ".PHP_EOL;
+	return $response;
+}
+
+function sellBooks ($bookInfo,$user)
+{
+	$bookInfo['type'] = "sell";
+	$bookInfo['user'] = $user;
+	$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
+	$response = $client->send_request($bookInfo);
+
+	echo "Client response received (sellBooks): ".PHP_EOL;
+	return $response;
+}
+
+?>
+
