@@ -13,3 +13,5 @@ if(url.status_code == 200):
 else:
     print("Unsuccessfuly Connected ... Printing Errors ... \n\n")
 
+print(html.prettify())
+
