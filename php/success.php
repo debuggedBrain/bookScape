@@ -101,7 +101,7 @@
       <script src = "../html/my.js"></script>
      </center>
    </body>
-   <a href = "/html/terms.html">terams and conditons</a>
+   <a href = "/html/terms.html">terms and conditions</a>
 </html>
 <style>
 	#table{margin: auto; background:gray; box-shadow: 3px 5px 3px 3px;}
