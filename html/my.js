@@ -14,7 +14,9 @@ function bookse(){
 				result.innerHTML += "<h3>Title: " + data.items[i].volumeInfo.title + "<h3>" + "<br>"
 				result.innerHTML += "<h3>Author: " + data.items[i].volumeInfo.authors+ "</h3><br>"
 				result.innerHTML += "<a href ="+data.items[i].volumeInfo.infoLink +'><button id="b">G Books</button></a><br>----------------------------------<br>'
-
+				result.innerHTML += "<h5>Title: " + data.items[i].volumeInfo.description + "<h5>" + "<br>"
+				result.innerHTML += "<a img src ="+data.items[i].volumeInfo.imageLinks.thumbnail + ">"
+ 			
 			}
 		},
 		type: 'GET'

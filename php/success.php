@@ -38,7 +38,7 @@
 	<center>
       <!-- Showing schedule being being fetched from DB and schedule button-->
       <h3>Your generated schedule: </h3>
-      <table>
+      <table id = "table">
          <?php
             $scheduleQuery = "SELECT * FROM schedule RIGHT JOIN courses ON schedule.course=courses.code WHERE schedule.user='$user'";
             $result2 = $conn->query($scheduleQuery);
@@ -58,7 +58,7 @@
       <br>
       <!-- Sellers who have the book for courses IN PROGRESS -->
          <h3>Sellers available for your book: </h3>
-	<table>
+	<tableid = "table">
          <?php
             $findSellerQuery = "select selling.user AS seller, selling.price AS price, selling.title AS title, selling.ISBN AS ISBN from selling right join courses on courses.bookISBN=selling.ISBN right join schedule on schedule.course=courses.code where schedule.user='$user'";
             $result3 = $conn->query($findSellerQuery);
@@ -75,7 +75,7 @@
 	</table>
       <!-- Showing books being sold by user and sell button -->
 <h3>Books currently being sold by you: </h3>
-      <table>
+      <tableid = "table">
       <?php
          $sellQuery = "SELECT * FROM selling WHERE user='$user'";
          $result1 = $conn->query($sellQuery);
@@ -101,4 +101,10 @@
       <script src = "../html/my.js"></script>
      </center>
    </body>
+   <a href = "/html/terms.html">terms and conditions</a>
 </html>
+<style>
+	#table{margin: auto; background:gray; box-shadow: 3px 5px 3px 3px;}
+</style>
+      
+     
