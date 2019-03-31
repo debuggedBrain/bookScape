@@ -12,9 +12,9 @@ html = BeautifulSoup(url.text, 'html.parser')
 # checking to see if connection was successful using  HTTP status code
 
 if(url.status_code == 200):
-    print("Successfully Connected ... Scraping Data ... \n")
+    print("Successfully Scraped! See courses.csv")
 else:
-    print("Unsuccessfully Connected ... Printing Errors ... \n")
+    print("Unsuccessfully Scraped!")
 
 site_containers = html.findAll('td', attrs={'class': 'highBorder'})
 
@@ -27,7 +27,19 @@ f.write(headers)
 data = []
 counter = 1
 
+for containers in site_containers:
+    data.append(containers.text.strip().split('\n'))
 
+data_size = len(data)
 
-print(html.prettify())
+for inner in data:
+    if counter > 12:
+        f.write("".join(inner) + '\n')
+        counter =1
+    else:
+        f.write("".join(inner) + '|')
+        counter += 1
+f.close()
+
+#print(html.prettify())
 
