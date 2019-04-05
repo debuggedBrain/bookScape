@@ -16,7 +16,7 @@ session_start();
 	<title>BookScape</title>
 	<style>
 	body{
-	background: url(try.png),url(try2.png);
+	background: url(images/background3.png),url(images/background1.png);
 	background-repeat: no-repeat,no-repeat;
 	background-position:left,right;
 	background-size: 50%;
