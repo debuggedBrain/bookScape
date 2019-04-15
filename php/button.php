@@ -1,3 +1,11 @@
+<?php
+$g = $_GET['pay'];
+
+
+ $t = $_GET['title'];
+ echo "<p><h3> Title: $t
+  Price: $g</h3> <p>";
+?>
 
 <!DOCTYPE html>
 
@@ -8,23 +16,22 @@
 </head>
 
 <body>
-	<input type ="text" id = "pay"><input type = "submit">
     <!-- Set up a container element for the button -->
     <div id="paypal-button-container"></div>
 
     <!-- Include the PayPal JavaScript SDK -->
     <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
-
-    <script>
+    
+    <script> j = "<?php echo $g; ?>";</script>
+    <script> 
         // Render the PayPal button into #paypal-button-container
         paypal.Buttons({
-
             // Set up the transaction
             createOrder: function(data, actions) {
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
-                            value: document.getElementById("pay").value
+                            value: j
                         }
                     }]
                 });
@@ -42,4 +49,7 @@
         }).render('#paypal-button-container');
     </script>
 </body>
+<style>
+#paypal-button-container{width: 171px;}
+</style>
     

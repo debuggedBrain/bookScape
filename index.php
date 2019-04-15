@@ -3,7 +3,7 @@ session_start();
 ?>
 <html>
 <center>
-<head>
+<head> 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, intiial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -14,33 +14,45 @@ session_start();
 	<!-- Personal Stylesheets -->
 	<link rel="stylesheet" href="login.css" type="text/css">
 	<title>BookScape</title>
+	<style>
+	body{
+	background: url(images/background3.png),url(images/background1.png);
+	background-repeat: no-repeat,no-repeat;
+	background-position:left,right;
+	background-size: 50%;
+	}
+	.form-group{
+	width: 30%;
+    box-sizing: border-box;
+	}
+	
+</style>
 </head>
-
 <body>
-	<div class="container mt-4">
+	<div align ="center" class="container mt-4">
 		<h1 class="display-4 text-center">
 		<i class="fas fa-book-open text-primary"></i> Book <span class="text-primary"> Scape </span> </h1><br>
-		<h1>Login</h1><br>
+		<h1>Login</h1>
 		<form id="login" method="post" action="/php/login.php">
-	<div class="form-group">
-		<label for="username"> Username </label>
-		<input id="username" name="username" class="form-control" type="text" required>
+	<div class="form-group" >
+		<!--<label for="username"> Username </label>-->
+		<input id="username" name="username" class="form-control" type="text" required placeholder = "Username">
 	</div>
 	<div class="form-group">
-		<label for="password"> Password </label>
-		<input id="password" name="password" class="form-control" type="password" required>
-		<input type="submit" value="submit" class="btn btn-primary btn-block">
+		<!--<label for="password"> Password </label>-->
+		<input id="password" name="password" class="form-control" type="password" required placeholder = "Password"><br>
+		<input type="submit" value="Sign in" class="btn btn-primary btn-block">
 		</form>
-	</div><br><h1>Register</h1><br>
+	</div><h1>Register</h1>
 		<form id="login" method="post" action="/php/register.php">
 	<div class="form-group">
-		<label for="username"> Username </label>
-		<input id="username" name="regusername" class="form-control" type="text" required>
+		<!--<label for="username"> Username </label>-->
+		<input id="username" name="regusername" class="form-control" type="text" required placeholder = "Username">
 	</div>
 	<div class="form-group">
-		<label for="password"> Password </label>
-		<input id="password" name="regpassword" class="form-control" type="password" required>
-		<input type="submit" value="submit" class="btn btn-primary btn-block">
+		<!--<label for="password"> Password </label>-->
+		<input id="password" name="regpassword" class="form-control" type="password" required placeholder = "Password"><br>
+		<input type="submit" value="Submit" class="btn btn-primary btn-block">
 		</form>
 	</div>
 </body>
