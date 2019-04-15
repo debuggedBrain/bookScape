@@ -19,10 +19,23 @@
       <link rel="stylesheet" href="login.css" type="text/css">
       <title>BookScape</title>
       <style>
-         table,th,td{
-         border: 1px solid black;
-         padding: 5px;
-         }
+	  table {
+	  border-collapse: collapse;
+	  }
+	  th, td {
+	  padding: 5px;
+	  text-align: left;
+	  border-bottom: 1px solid #ddd;
+	  }
+	  tr:hover {
+	  background-color:#A59595;
+	  }
+	  th {
+	  background-color: #F77070;
+	  color: white;
+	  }
+	  
+	  
       </style>
    </head>
    <body>
@@ -32,13 +45,13 @@
       </h1>
       <br>
       <h1>Welcome <?php echo " $user !"; ?></h1>
-      <form action="logout.php" method="post">
-         <input name="logout" type="submit" id="logout" value="logout">
+      <form style ="float: right; position: absolute; top: 8px; right: 16px;" action="logout.php" method="post">
+         <input style ="background:transparent; border-color: white; border-radius:5px; width: 150px; height: 50px;" name="logout" type="submit" id="logout" value="Logout">
       </form>
 	<center>
       <!-- Showing schedule being being fetched from DB and schedule button-->
-      <h3>Your generated schedule: </h3>
-      <table>
+      <h3 align ="left">Your generated schedule: </h3>
+      <table align ="left">
          <?php
             $scheduleQuery = "SELECT * FROM schedule RIGHT JOIN courses ON schedule.course=courses.code WHERE schedule.user='$user'";
             $result2 = $conn->query($scheduleQuery);
@@ -51,21 +64,25 @@
             		echo "No schedule has been created";
             }
             ?>
-      </table>
+      </table><br>
       <form action="../html/scheduleCreate.php">
-         <button type="submit">Create Schedule</button>
+         <button style = "color: white; background:#B4A8A8; border-radius: 4px; width: 150px; height: 50px;" type="submit">Create Schedule</button>
       </form>
       <br>
       <!-- Sellers who have the book for courses IN PROGRESS -->
-         <h3>Sellers available for your book: </h3>
-	<table>
+         <h3 align ="left">Sellers available for your book: </h3>
+	<table align ="left">
          <?php
             $findSellerQuery = "select selling.user AS seller, selling.price AS price, selling.title AS title, selling.ISBN AS ISBN from selling right join courses on courses.bookISBN=selling.ISBN right join schedule on schedule.course=courses.code where schedule.user='$user'";
             $result3 = $conn->query($findSellerQuery);
             if($result3->num_rows > 0){
-                echo "<tr><th>Seller</th><th>Price</th><th>ISBN</th><th>Title</th></tr>";
+                echo "<tr><th>Seller</th><th>Price</th><th>ISBN</th><th>Title</th><th>BuyNow</th></tr>";
                 while($row3 = $result3->fetch_assoc()){
-                        echo "<tr><td>$row3[seller]</td><td>$row3[price]</td><td>$row3[ISBN]</td><td>$row3[title]</td></tr><br />";
+                        echo "<tr><td>$row3[seller]</td><td>$row3[price]</td><td>$row3[ISBN]</td><td>$row3[title]</td><td>	<form action='button.php'>
+									<input type='hidden' name = 'pay' id = 'pay' value =$row3[price]>
+									<input type='hidden' name = 'title' id = 'title' value = $row3[title]>
+									<button style = 'color: white; background:#B4A8A8; border-radius: 4px; width: 50px; height: 50px;' type='submit'>Buy Now</button>
+								</form>;</td></tr><br />";
                 }
             }else{
                         echo "No books reccomended or being sold";
@@ -73,9 +90,10 @@
 
             ?>
 	</table>
+
       <!-- Showing books being sold by user and sell button -->
-<h3>Books currently being sold by you: </h3>
-      <table>
+<h3 align ="left">Books currently being sold by you: </h3>
+      <table align ="left">
       <?php
          $sellQuery = "SELECT * FROM selling WHERE user='$user'";
          $result1 = $conn->query($sellQuery);
@@ -88,14 +106,14 @@
          		echo "Nothing is being sold by you";
          }
          ?>
-      </table>
+      </table><br>
       <form action="../html/sellBooks.php">
-         <button type="submit">Sell A Book</button>
+         <button style = "color: white; background:#B4A8A8; border-radius: 4px; width: 150px; height: 50px;" type="submit">Sell A Book</button>
       </form>
-      <h3>Manually search for a book:</h3>
-      <input type = "search" id = "books">
+      <h3 align ="left">Manually search for a book:</h3>
+      <input align ="left" type = "search" id = "books">
       <label for "search"><label>
-      <button type = "button" id = "b">g books</button>
+      <button style = "color: white; background:#B4A8A8; border-radius: 4px; width: 100px; height: 35px;"type = "button" id = "b">g books</button>
       <div id="result"></div>
       <script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src = "../html/my.js"></script>
