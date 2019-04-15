@@ -1,14 +1,10 @@
 <?php
-$g = $_GET['pay'];
+	$g = $_GET['pay'];
 
 
- $t = $_GET['title'];
- echo "<p><h3> Title: $t
-<<<<<<< HEAD
-  Price: $g</h3> <p> ";
-=======
-  Price: $g</h3> <p>";
->>>>>>> 0c0b9d636f4e0468d7ba10cee0672b2206226bb9
+  $t = $_GET['title'];
+   echo "<p><h3> Title: $t
+   Price: $g</h3> <p>";
 ?>
 
 <!DOCTYPE html>

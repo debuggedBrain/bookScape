@@ -76,9 +76,13 @@
             $findSellerQuery = "select selling.user AS seller, selling.price AS price, selling.title AS title, selling.ISBN AS ISBN from selling right join courses on courses.bookISBN=selling.ISBN right join schedule on schedule.course=courses.code where schedule.user='$user'";
             $result3 = $conn->query($findSellerQuery);
             if($result3->num_rows > 0){
-                echo "<tr><th>Seller</th><th>Price</th><th>ISBN</th><th>Title</th></tr>";
+                echo "<tr><th>Seller</th><th>Price</th><th>ISBN</th><th>Title</th><th>BuyNow</th></tr>";
                 while($row3 = $result3->fetch_assoc()){
-                        echo "<tr><td>$row3[seller]</td><td>$row3[price]</td><td>$row3[ISBN]</td><td>$row3[title]</td></tr><br />";
+                        echo "<tr><td>$row3[seller]</td><td>$row3[price]</td><td>$row3[ISBN]</td><td>$row3[title]</td><td>	<form action='button.php'>
+									<input type='hidden' name = 'pay' id = 'pay' value =$row3[price]>
+									<input type='hidden' name = 'title' id = 'title' value = $row3[title]>
+									<button style = 'color: white; background:#B4A8A8; border-radius: 4px; width: 50px; height: 50px;' type='submit'>Buy Now</button>
+								</form>;</td></tr><br />";
                 }
             }else{
                         echo "No books reccomended or being sold";
@@ -86,9 +90,7 @@
 
             ?>
 	</table>
-	<form action="<!--File Name-->">
-         <button style = "color: white; background:#B4A8A8; border-radius: 4px; width: 150px; height: 50px;" type="submit">Buy Now</button>
-      </form>
+
       <!-- Showing books being sold by user and sell button -->
 <h3 align ="left">Books currently being sold by you: </h3>
       <table align ="left">
