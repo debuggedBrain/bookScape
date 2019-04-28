@@ -87,9 +87,8 @@
             }else{
                         echo "No books reccomended or being sold";
             }
-
             ?>
-	</table>
+	</table><br><br><br><br><br><br>
 
       <!-- Showing books being sold by user and sell button -->
 <h3 align ="left">Books currently being sold by you: </h3>
