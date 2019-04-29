@@ -11,6 +11,14 @@ session_start();
     <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.min.css">
     
     <link rel="stylesheet" href="login.css" type="text/css">
+	<style>
+	body{
+	background-color: #EFEEEE;
+	background: url(images/background2.png);
+	}
+	
+
+	</style>
     <title>BookScape</title>
 </head>
 <body><center>
@@ -19,22 +27,21 @@ session_start();
     <i class="fas fa-book-open text-primary"></i> Book <span class="text-primary"> Scape </span> </h1><br></div>
 	<form action=../php/schedule.php method="post">
 		<label>Course name:</label>
-		<input type="text" name="course1" style="width: 100px" required><br>
+		<input type="text" name="course1" style="width: 130px; border-radius: 4px;" required><br>
                 <label>Course name:</label>
-                <input type="text" name="course2" style="width: 100px"><br>
+                <input type="text" name="course2" style="width: 130px; border-radius: 4px;"><br>
                 <label>Course name:</label>
-                <input type="text" name="course3" style="width: 100px"><br>
+                <input type="text" name="course3" style="width: 130px;border-radius: 4px;"><br>
                 <label>Course name:</label>
-                <input type="text" name="course4" style="width: 100px"><br>
+                <input type="text" name="course4" style="width: 130px;border-radius: 4px;"><br>
                 <label>Course name:</label>
-                <input type="text" name="course5" style="width: 100px"><br>
+                <input type="text" name="course5" style="width: 130px;border-radius: 4px;"><br>
                 <label>Course name:</label>
-                <input type="text" name="course6" style="width: 100px"><br>
+                <input type="text" name="course6" style="width: 130px;border-radius: 4px;"><br>
                 <label>Course name:</label>
-                <input type="text" name="course7"style="width: 100px"><br>
-		<input type="submit" value="submit">
+                <input type="text" name="course7"style="width: 130px;border-radius: 4px;"><br>
+		<input style = "color: white; background:#B4A8A8; border-radius: 4px; width: 130px; height: 35px;" type="submit" value="submit">
 	</form>
 </center></body>
 </html>
-
 

@@ -19,6 +19,11 @@
       <link rel="stylesheet" href="login.css" type="text/css">
       <title>BookScape</title>
       <style>
+	  body{
+	background-color: #EFEEEE;
+	
+	}
+	
 	  table {
 	  border-collapse: collapse;
 	  }
@@ -46,7 +51,7 @@
       <br>
       <h1>Welcome <?php echo " $user !"; ?></h1>
       <form style ="float: right; position: absolute; top: 8px; right: 16px;" action="logout.php" method="post">
-         <input style ="background:transparent; border-color: white; border-radius:5px; width: 150px; height: 50px;" name="logout" type="submit" id="logout" value="Logout">
+         <input style = "color: white; background:#B4A8A8; border-radius: 4px; width: 130px; height: 35px;" name="logout" type="submit" id="logout" value="Logout">
       </form>
 	<center>
       <!-- Showing schedule being being fetched from DB and schedule button-->
@@ -87,9 +92,8 @@
             }else{
                         echo "No books reccomended or being sold";
             }
-
             ?>
-	</table>
+	</table><br><br><br><br><br><br>
 
       <!-- Showing books being sold by user and sell button -->
 <h3 align ="left">Books currently being sold by you: </h3>
