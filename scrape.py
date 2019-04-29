@@ -18,7 +18,7 @@ else:
 
 site_containers = html.findAll('td', attrs={'class': 'highBorder'})
 
-filename = "raw.csv"
+filename = ""
 f = open(filename, "w")
 
 headers = "Book, Section\n"
