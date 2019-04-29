@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-import urlopen
+import urlopen 
 from selenium import webdriver
 
 url = requests.get("http://uisnetpr01.njit.edu/courseschedule/")
