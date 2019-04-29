@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 # ScooterGang/490 project - BookScape
-# This project is to create a website for finding information on college text books such as price and avaiblity on shopping sites for students to find the best deal
+# This project is to create a website for finding information on college text books such as price and avaiblity on shopping sites for students to find the best deal 
+# test
 *This is only for educational purposes*
 =======
 # 490 project - BookScape
