@@ -10,10 +10,16 @@ from selenium import webdriver
 URL = "https://sis.rutgers.edu/soc/#courses?subject=003&semester=12019&campus=NK&level=U";
 # driver.get("https://sis.rutgers.edu/soc/#courses?subject=003&semester=12019%campus=NK&level=U";
 # driver.quit();
+
 req = requests.get(URL);
 
 soup = BeautifulSoup(req.text, 'html.parser');
 
 body = soup.find_all('div');
 
+courses = soup.find_all('div', {'class': 'cursortext'});
+subjects = soup.find_all('div', {'class': 'subjectTitle2'});
 
+print(body)
+print(courses)
+print(subjects)
