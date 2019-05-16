@@ -28,11 +28,11 @@ session_start();
 	}
 	select{
 	width:100%;
-	height:6%;
-	outline-color: red;
-    color: #656464;
+	height:6.5%;
+	outline-color: #F6ABAB;
+	color: #656464;
 	box-sizing: border-box;
-	border-radius: .2em;
+	border-radius: .3em;
 	border-color:	#C0C0C0;
 	}
 	
