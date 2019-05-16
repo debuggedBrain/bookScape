@@ -1,0 +1,17 @@
+DMZ Server
+
+Receives packages from FE(192.168.1.102) or BE(192.168.1.103)
+Sends packages to FE(192.168.1108) or BE(192.168.1109)
+Sends packages to FE Master(192.168.1.110) or FE Slave(192.168.1.111)
+Sends packages to BE Master(192.168.1.106) or FE Slave(192.168.107)
+
+This IP address 192.168.1.104
+
+Server in Deploy_Server folder is ran and tracks all activity on all levels.
+Scripts accompany the DeployServer to send and recieve packages.
+
+SSH and SCP used to transfer files.
+
+Database (Deploy) contains tables "Dev" and "Status"
+Dev table keeps track of all current packages and their versions
+Status contains packages and each package is marked as "good" or "bad" by QA 

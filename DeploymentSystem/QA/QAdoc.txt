@@ -1,0 +1,18 @@
+QA Server documentation
+
+Backend QA ip:192.168.1.109
+Frontend QA ip:192.168.1.108
+
+the server recieves pakages from developyment that it recieved from development and is add to the files folder in the QA parent folder.
+
+the pakages is also unziped in the root web server folder.
+
+getPack.sh gets the name of the pakaged that was sent.
+
+after the pakaged is tested the pakaged status is updated in the database from pending to either good or bad.
+
+the php files calls getPack.sh to get the name of the pakaged sent and then determine wether it is the Backend server or front end QA is comunicating with the database. 
+
+the goodm.php updates the status of the pakage to good in the database. 
+
+the badm.php updates the status of the pakages to bad in the database. 
