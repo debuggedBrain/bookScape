@@ -20,11 +20,22 @@ session_start();
 	background-repeat: no-repeat,no-repeat;
 	background-position:left,right;
 	background-size: 50%;
+	
 	}
 	.form-group{
 	width: 30%;
     box-sizing: border-box;
 	}
+	select{
+	width:100%;
+	height:6%;
+	outline-color: red;
+    color: #656464;
+	box-sizing: border-box;
+	border-radius: .2em;
+	border-color:	#C0C0C0;
+	}
+	
 	
 </style>
 </head>
@@ -52,6 +63,11 @@ session_start();
 	<div class="form-group">
 		<!--<label for="password"> Password </label>-->
 		<input id="password" name="regpassword" class="form-control" type="password" required placeholder = "Password"><br>
+		<select>
+		<option value="NJIT Students">NJIT Students</option>
+		<option value="Rutgers Students">Rutgers Students</option>
+		<option value="Others ">Others</option>
+		</select><br><br>
 		<input type="submit" value="Submit" class="btn btn-primary btn-block">
 		</form>
 	</div>
